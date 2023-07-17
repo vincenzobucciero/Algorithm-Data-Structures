@@ -9,42 +9,31 @@
 using namespace std;
 
 class Employee {
-    private:
-        string name;
-        double salary;
-    public:
-        Employee(string name, double salary);
-        //~Employee();
-        void setName(string name);
-        void setSalary(double salary);
-        string getName();
-        double getSalary();
-        virtual void printInfo();
+  private:
+    string name;
+    double salary;
+  public:
+    Employee(string name, double salary) { this->name = name; this->salary = salary; }
+    void setName(string name) { this->name = name; }
+    string getName() { return this->name; }
+    void setSalary(double salary) { this->salary = salary; }
+    double getSalary() { return this->salary; }
+    
+    virtual void printInfo();
+    
+    Employee operator+ (Employee a) {
+      Employee tmp("", 0.00);
+      tmp.setSalary(this->getSalary() + a.getSalary());
+      
+      return tmp;
+    }
 };
 
-Employee::Employee(string name, double salary) {
-    this->name = name;
-    this->salary = salary;
-}
-
-void Employee::setName(string name) {
-    this->name = name;
-}
-string Employee::getName() {
-    return name;
-}
-
-void Employee::setSalary(double salary) {
-    this->salary = salary;
-}
-double Employee::getSalary() {
-    return salary;
-}
-
 void Employee::printInfo() {
-    cout << "Employee: " << endl;
-    cout << "\tName: " << this->getName() << endl;
-    cout << "\tSalary: " << this->getSalary() << "$" << endl;
+  cout << "Employee:  \n" << endl;
+  cout << "\tName: " << this->getName() << endl;
+  cout << "\tSalary: " << this->getSalary() << "$" <<  endl;
+  cout << endl;
 }
 
 #endif

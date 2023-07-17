@@ -9,42 +9,19 @@
 using namespace std;
 
 class Node {
-    private:
-        Employee *info;
-        Node *nextNode;
-    public:
-        Node(Employee *info);
-        ~Node();
-
-        void setInfo(Employee *info);
-        Employee *getInfo();
-
-        void setNext(Node *nextNode);
-        Node *getNext();
+  private:
+    Employee *info;
+    Node *nextNode;
+  public:
+    Node(Employee *info) { this->info = info; this->nextNode = nullptr; }
+    ~Node() { delete info; delete nextNode; }
+    
+    void setInfo(Employee *info) { this->info = info; }
+    Employee *getInfo() { return this->info; }
+    
+    void setNext(Node *nextNode) { this->nextNode = nextNode; }
+    Node *getNext() { return this->nextNode; }
 };
-
-Node::Node(Employee *info) {
-    this->info = info;
-    this->nextNode = nullptr;
-}
-Node::~Node() {
-    delete info;
-    delete nextNode;
-}
-
-void Node::setInfo(Employee *info) {
-    this->info = info;
-}
-Employee* Node::getInfo() {
-    return info;
-}
-
-void Node::setNext(Node *nextNode) {
-    this->nextNode = nextNode;
-}
-Node* Node::getNext() {
-    return nextNode;
-}
 
 
 #endif

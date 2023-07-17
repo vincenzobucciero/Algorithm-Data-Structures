@@ -17,16 +17,17 @@
 using namespace std;
 
 int main() {
-    List *testList = new List();
-
-    testList->insList(new Employee("Vincenzo", 2000.00));
-    testList->insList(new Employee("Giovanni", 2000.00));
-    testList->insList(new Employee("Maurizio", 2000.00));
-    testList->insList(new Manager("Ciretta", 2000.00, 1000.00));
-
-    testList->printList();
-
-    return 0;
-
+  List *testList = new List();
+  testList->insList(new Employee("Vincenzo", 1500.00));
+  testList->insList(new Manager("Sebastian", 3000.00, 1000.00));
+  testList->insList(new Employee("Camilla", 1300.00));
+  testList->insList(new Employee("Carmine", 800.00));
+  testList->insList(new Manager("Antonio", 1500.00, 1000.00));
+  
+  testList->printList();
+  
+ testList->TotSalary();
+  
+  return 0;
 }
 

@@ -8,63 +8,62 @@
 #include "node.h"
 
 class List {
-    private:
-        Node *head;
-        Node *tail;
-    public:
-        List();
-        ~List();
-
-        void setHead(Node *head) { this->head = head; }
-        Node* getHead() { return head; }
-
-        void setTail(Node *tail) { this->tail = tail; }
-        Node* getTail() { return tail; }
-
-        void printList();
-
-        void insList(Employee *info);
-
-        bool isEmpty();
-};
-
-List::List() {
-    head = nullptr;
-    tail = nullptr;
-}
-
-List::~List() {
-    while(this->head != nullptr) {
-        Node *tmp = head;
-        head = head->getNext();
-        delete tmp; //delete the node from memory and free up its space in heap
+  private:
+    Node *head;
+    Node *tail;
+  public:
+    List() { this->head = nullptr; this->tail = nullptr; }
+    ~List() {
+      while (this->head != nullptr) {
+            Node *tmp = head;
+            head = head->getNext();
+              delete tmp;
+      }
     }
-}
-
-void List::printList() {
-    Node *node = head;
-    while(node != nullptr) {
+    
+    void setHead(Node *head) { this->head = head; }
+    Node *getHead() { return this->head; }
+    
+    void setTail(Node *tail) { this->tail = tail; }
+    Node *getTail() { return this->tail; }
+    
+    void printList() {
+      Node *node = head;
+      while(node != nullptr) {
         node->getInfo()->printInfo();
         node = node->getNext();
         cout << endl;
+      }
     }
-}
-
-bool List::isEmpty() {
-    if(this->head == nullptr) {
-        return true;
-    }
-    return false;
-}
-
-void List::insList(Employee *info) {
-    Node *insNode = new Node(info);
-    if(!isEmpty()) {
-        tail->setNext(insNode);
+    
+    void insList(Employee *info) {
+      Node *insNode = new Node(info);
+      if(!isEmpty()) {
+        tail ->setNext(insNode);
         tail = insNode;
-    } else {
+      } else {
         tail = head = insNode;
+      }
     }
-}
+    
+    bool isEmpty() {
+      if(this->head == nullptr)
+        return true;
+      else
+        return false;
+    }
+    
+    void TotSalary() {
+      Node *node = head;
+      Employee sum("", 0.00);
+      
+      while(node !=nullptr) {
+        Employee tmp("", node->getInfo()->getSalary());
+        sum = sum + tmp;
+        node = node->getNext();
+      }
+      cout << "Employee salary tot:  " << sum.getSalary() << "$" << endl;
+    }
+};
 
 #endif
