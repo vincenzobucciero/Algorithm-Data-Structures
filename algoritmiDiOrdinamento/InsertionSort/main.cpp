@@ -8,6 +8,7 @@
 */
 
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -39,30 +40,55 @@ void insertionSort(int arr[], int n) {
     }
 }
 
+void allocationVector(int **vector, int n) {
+    *vector = (int*)calloc(n, sizeof(int));
+    for(int i = 0; i < n; i++) {
+        srand(time(NULL));
+        (*vector)[i] = rand()%10;
+    }
+}
+
+void printVector(int *vector, int n) {
+    cout << endl;
+    for(int i = 0; i < n; i++) {
+        cout << vector[i] << "  ";
+    }
+}
+
 int main() {
     int n;
 
     cout <<"Inserisci dimensione array:  ";
     cin >> n;
     
-    int arr[n];
+    int *arr;
 
+    /*
     for(int i=0 ;i<n; ++i) {
         arr[i] = rand()%10;
     }
+    */
+   
+    allocationVector(&arr, n);
 
     cout << "Aray disordinato originale:  " << endl;
+    /*
     for(int i=0 ;i<n; ++i) {
         cout << arr[i] << "  ";
     }
+    */
 
+    printVector(arr, n);
     insertionSort(arr, n);
 
     cout << endl;
     cout << "Aray ordinato dopo insertionSort:  " << endl;
+    /*
     for(int i=0 ;i<n; ++i) {
         cout << arr[i] << "  ";
     }
+    */
+    printVector(arr, n);
     cout << endl;
 
     return 0;
