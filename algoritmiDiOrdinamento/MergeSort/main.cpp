@@ -105,6 +105,72 @@ void mergeSortAbstract(Item a[], int left, int right) {
     }
 }
 
+/**
+ * Cormen merge Sort's version
+ * 
+ * Cormen proposes a Merge on the spot with sentinels. 
+ * It uses an auxiliary procedure MERGE(A,p,q,r) where A is an array, p, q and r are indices such that p ≤ q ≤ r.
+ * 
+ * The procedure assumes that the sub-arrays A[p, ... q] and A[q+1, ....r] are ordered.
+ * 
+ * It has computational complexity Θ(n), where n=r-p+1.
+*/
+
+void mergeCormen(int a[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    int L[n1];
+    int R[n2];
+
+    for(int i = 0; i < n1; i++) {
+        L[i] = a[left + i];
+    }
+    for(int j = 0; j < n2; j++) {
+        R[j] = a[mid + j + 1];
+    }
+
+    L[n1 + 1];
+    R[n2 + 1];
+
+    int i = 0;
+    int j = 0;
+    int k = left;
+
+    while(i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            a[k] = L[i];
+            i++;
+        } else {
+            a[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i < n1) {
+        a[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while(j < n2) {
+        a[k] = R[j];
+        j++;
+        k++;
+    }
+    
+}
+
+void mergeSortCormen(int a[], int left, int right) {
+    if(left < right) {
+        int mid = (left + right) / 2;
+        mergeSortCormen(a, left, mid);
+        mergeSortCormen(a, mid+1, right);
+        mergeCormen(a, left, mid, right);
+    }
+}
+
 int main() {
     int n;
     cout << "Inserisci il numero di elementi del vettore:  ";
@@ -134,7 +200,14 @@ int main() {
     for(int i = 0; i < n; i++) {
         cout << a[i] << " ";
     }
-    cout << endl;    
+    cout << endl;  
+
+    mergeSortCormen(a, 0, n-1);
+    cout << "Vettore ordinato con MergeSort (Procedura Merge secondo Cormen con sentinelle)" << endl;
+    for(int i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;  
 
     return 0;
 }
