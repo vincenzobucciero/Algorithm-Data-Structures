@@ -16,28 +16,23 @@ struct TreeNode {
     TreeNode(int val) : val(val), left(nullptr), right(nullptr) { }
 };
 
-int depthNode(TreeNode* node, TreeNode* root, int depth) {
-    if (!node) {
-        return -1; // Albero vuoto, quindi il nodo non è presente
+int depthNode(TreeNode* node, int x) {
+    if(node == nullptr) {
+        return -1;
     }
 
-    if (node == root) {
-        return depth; // Nodo trovato, ritorna la profondità corrente
+    if(node->val == x) {
+        return 0;
     }
 
-    int leftDepth = depthNode(root->left, node, depth + 1);
-    if (leftDepth != -1) {
-        return leftDepth; // Il nodo è stato trovato nel sottoalbero sinistro
+    int leftDepth = depthNode(node->left, x);
+    int rightDepth = depthNode(node->right, x);
+
+    if (leftDepth == -1 && rightDepth == -1) {
+        return -1;
     }
 
-    int rightDepth = depthNode(root->right, node, depth + 1);
-    if (rightDepth != -1) {
-        return rightDepth; // Il nodo è stato trovato nel sottoalbero sinistro
-    }
-
-    //return depthNode(root->right, node, depth + 1); // Cerca nel sottoalbero destro
-
-    return -1;
+    return max(leftDepth, rightDepth) + 1;
 }
 
 int main() {
@@ -48,9 +43,9 @@ int main() {
     root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
 
-    TreeNode *nodeX = root->left;    //x = 5
+    TreeNode *nodeX = root->left->left;    //x = 5
 
-    int depthXNode = depthNode(nodeX, root, 0);
+    int depthXNode = depthNode(root, nodeX->val);
 
     cout << "La profondità del nodo x = " << nodeX->val << " è : " << depthXNode << endl;
 
@@ -62,3 +57,5 @@ int main() {
 
     return 0;
 }
+
+//how can return x node's depth in Binary tree?
