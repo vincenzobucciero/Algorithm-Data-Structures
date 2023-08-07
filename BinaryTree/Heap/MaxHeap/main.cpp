@@ -25,9 +25,6 @@ int main() {
 
     maxTree.print();
     maxTree.printAsciiTree();
-
-    //maxTree.heapSort();
-    maxTree.printVector();
     
     return 0;
 }

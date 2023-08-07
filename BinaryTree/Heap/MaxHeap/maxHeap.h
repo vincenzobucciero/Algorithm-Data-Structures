@@ -38,7 +38,6 @@ class MaxHeap {
 
         void insert(T x);
         void print();
-        void printVector();
         void printAsciiTree();
 };
 
@@ -146,13 +145,6 @@ void MaxHeap<T>::printAsciiTree(){
     inOrderAscii(0,0);
 }
 
-template <typename T>
-void MaxHeap<T>::printVector(){
-    cout << endl << "Vector: ";
-    for(int i = 0; i < this->tree->size(); i++)
-        cout << this->tree->at(i) << " ";
-    cout << endl;
-}
 
 
 
