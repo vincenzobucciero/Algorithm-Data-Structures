@@ -39,6 +39,11 @@ class MaxHeap {
         void insert(T x);
         void print();
         void printAsciiTree();
+
+        //esercizio 1 slide 10
+        //aggiungere il metodo heapSort alla classe heap
+        void heapSort();
+        void printVector();
 };
 
 template <typename T>
@@ -143,6 +148,25 @@ template <typename T>
 void MaxHeap<T>::printAsciiTree(){
     cout << endl << "***Max Ascii Heap***" << endl;
     inOrderAscii(0,0);
+}
+
+template <typename T>
+void MaxHeap<T>::heapSort() {
+    buildMaxHeap();
+    for(int j = heapSize-1; j > 0; j--) {
+        swap(this->tree->at(0), this->tree->at(j));
+        heapSize--;
+        maxHeapify(0);
+    }
+}
+
+template <typename T>
+void MaxHeap<T>::printVector() {
+    cout << "\nPrinting Vector:" << endl;
+    for(int i = 0; i < this->tree->size(); i++) {
+        cout << this->tree->at(i) << "  ";
+    }
+    cout << endl;
 }
 
 
