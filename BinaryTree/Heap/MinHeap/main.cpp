@@ -27,4 +27,7 @@ int main() {
 
     myTree.printTree();
     myTree.printAsciiTree();
+
+    myTree.heapSort();
+    myTree.printVector();
 }

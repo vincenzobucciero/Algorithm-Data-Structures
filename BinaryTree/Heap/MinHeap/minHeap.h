@@ -40,6 +40,11 @@ class MinHeap {
         void insert(T x);
         void printTree();
         void printAsciiTree();
+
+        //esercizio 1 slide 10
+        //aggiungere il metodo heapSort alla classe heap
+        void heapSort();
+        void printVector();
 };
 
 template <typename T>
@@ -112,7 +117,7 @@ void MinHeap<T>::inOrderAscii(int i, int spazio) {
     inOrderAscii(right(i), spazio);
     cout << endl;
     for(int i = vuoto; i < spazio; i++) 
-        cout << "  ";
+        cout << " ";
     cout << this->tree->at(i) << endl;
     inOrderAscii(left(i), spazio);
 }
@@ -121,6 +126,25 @@ template <typename T>
 void MinHeap<T>::printAsciiTree() {
     cout << "\nPrinting the Ascii Tree:" << endl;
     inOrderAscii(0, 0);
+}
+
+template <typename T>
+void MinHeap<T>::heapSort() {
+    buildMinHeap();
+    for(int j = 0; j < heapSize-1; j++) {
+        swap(this->tree->at(0), this->tree->at(j));
+        heapSize--;
+        minHeapify(0);
+    }
+}
+
+template <typename T>
+void MinHeap<T>::printVector() {
+    cout << "\nPrinting Vector: " << endl;
+    for(int i = 0; i < this->tree->size(); i++) {
+        cout << this->tree->at(i) << "  ";
+    }
+    cout << endl;
 }
 
 #endif //MINHEAP_H
