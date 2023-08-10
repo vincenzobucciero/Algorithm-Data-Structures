@@ -42,7 +42,6 @@ class MinHeap {
 
         void swap(T& a, T& b);
         void minHeapify(int i);
-        void inOrderAscii(int i , int spazio);
 
     public:
         MinHeap(vector<T>* tree);
@@ -50,15 +49,16 @@ class MinHeap {
         ~MinHeap();
 
         void insert(T x);
-        void printTree();
+        void printingTree();
         void inOrderAscii(int i , int spazio);
-        void printAsciiTree();
+        void printingAsciiTree();
 };
 
 template <typename T>
 MinHeap<T>::MinHeap(vector<T>* tree) {
     this->tree = tree;
     this->heapSize = this->tree->size();
+    buildMinHeap();
 }
 
 template <typename T>
@@ -74,10 +74,7 @@ MinHeap<T>::~MinHeap() {
 
 template <typename T>
 void MinHeap<T>::swap(T& a, T& b) {
-    int tmp;
-    tmp = a;
-    a = b;
-    b = tmp;
+    int tmp; tmp = a; a = b; b = tmp;
 }
 
 template <typename T>
@@ -104,13 +101,17 @@ void MinHeap<T>::minHeapify(int i) {
 
 template <typename T>
 void MinHeap<T>::insert(T x) {
-    this->tree->push_back(x);
     heapSize++;
-    buildMinHeap();
+    this->tree->push_back(x);
+    int i = heapSize-1;
+    while(i != 0 && this->tree->at(parent(i)) > this->tree->at(i)) {
+        swap(this->tree->at(i), this->tree->at(parent(i)));
+        i = parent(i);
+    }
 }
 
 template <typename T>
-void MinHeap<T>::printTree() {
+void MinHeap<T>::printingTree() {
     cout << "Printing the Tree: " << endl;
     for(int i = 0; i < heapSize; i++) {
         cout << this->tree->at(i) << "  ";
@@ -131,28 +132,10 @@ void MinHeap<T>::inOrderAscii(int i, int spazio) {
 }
 
 template <typename T>
-void MinHeap<T>::printAsciiTree() {
+void MinHeap<T>::printingAsciiTree() {
     cout << "\nPrinting the Ascii Tree:" << endl;
     inOrderAscii(0, 0);
 }
 
-template <typename T>
-void MinHeap<T>::heapSort() {
-    buildMinHeap();
-    for(int j = 0; j < heapSize-1; j++) {
-        swap(this->tree->at(0), this->tree->at(j));
-        heapSize--;
-        minHeapify(0);
-    }
-}
-
-template <typename T>
-void MinHeap<T>::printVector() {
-    cout << "\nPrinting Vector: " << endl;
-    for(int i = 0; i < this->tree->size(); i++) {
-        cout << this->tree->at(i) << "  ";
-    }
-    cout << endl;
-}
 
 #endif //MINHEAP_H

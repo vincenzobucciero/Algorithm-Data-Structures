@@ -19,13 +19,13 @@ class MinPriorityQueue : private MinHeap<T> {
         MinPriorityQueue() {  }
         ~MinPriorityQueue() {  }
 
-        void queueInsert(T x);
         T queueMinimum();
         T queueExtractMin();
-        void queueDecreaseKey(int i, T key);
 
-        void printTree();
-        void printAsciiTree();
+        void queueInsert(T x);
+        void queueDecreaseKey(int i, T key);
+        void printingTree();
+        void printingAsciiTree();
 };
 
 template <typename T>
@@ -54,23 +54,24 @@ template <typename T>
 void MinPriorityQueue<T>::queueDecreaseKey(int i, T key) {
     if(key > this->getTree()->at(i))
         return;
+
     this->setTree(i, key);
 
     while(i > 0 && this->getTree()->at(this->parent(i)) > this->getTree()->at(i)) {
-        this->swap(this->getTree()->at(this->parent(i)), this->getTree()->at(i));
+        this->swap(this->getTree()->at(i), this->getTree()->at(this->parent(i)));
         i = this->parent(i);
     }
 }
 
 template <typename T>
-void MinPriorityQueue<T>::printTree(){
+void MinPriorityQueue<T>::printingTree(){
     cout << endl << "***Min Heap***" << endl;
     for (int i=0; i<this->getHeapSize(); i++)
         cout << this->getTree()->at(i) << " ";
 }
 
 template <typename T>
-void MinPriorityQueue<T>::printAsciiTree(){
+void MinPriorityQueue<T>::printingAsciiTree(){
     cout << endl << "***Min Ascii Heap***" << endl;
     this->inOrderAscii(0,0);
 }

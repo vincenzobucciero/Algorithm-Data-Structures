@@ -16,28 +16,31 @@ using namespace std;
 
 int main() {
 
-    MinPriorityQueue<int> myMinQueue;
+    MinPriorityQueue<int> priorityQueue;
 
-    myMinQueue.queueInsert(100);
-    myMinQueue.queueInsert(200);
-    myMinQueue.queueInsert(20);
-    myMinQueue.queueInsert(420);
-    myMinQueue.queueInsert(80);
-    myMinQueue.queueInsert(820);
-    myMinQueue.queueInsert(1020);
-    myMinQueue.queueInsert(600);
+    priorityQueue.queueInsert(15);
+    priorityQueue.queueInsert(10);
+    priorityQueue.queueInsert(25);
+    priorityQueue.queueInsert(5);
+    priorityQueue.queueInsert(30);
+    priorityQueue.queueInsert(17);
+    priorityQueue.queueInsert(22);
 
-    myMinQueue.printTree();
-    myMinQueue.printAsciiTree();
+    priorityQueue.printingTree();
+    priorityQueue.printingAsciiTree();
 
-    cout << "Maximum : " << myMinQueue.queueMinimum() << endl;
+    cout << "\nMinimum element: " << priorityQueue.queueMinimum();
 
-    cout << "Extract Min : " << myMinQueue.queueExtractMin() << endl;
+    priorityQueue.queueDecreaseKey(2, 6);
+    cout << "\nAfter decreasing key at index 2 to 6:";
+    priorityQueue.printingTree();
+    priorityQueue.printingAsciiTree();
 
-    myMinQueue.queueDecreaseKey(2, 20);
-
-    myMinQueue.printTree();
-    myMinQueue.printAsciiTree();
+    //int extractedMax = priorityQueue.queueExtractMax();
+    cout << "\nExtracted min element: " << priorityQueue.queueExtractMin() << endl;
+    cout << "\nHeap after extraction:";
+    priorityQueue.printingTree();
+    priorityQueue.printingAsciiTree();
 
     return 0;
 }
