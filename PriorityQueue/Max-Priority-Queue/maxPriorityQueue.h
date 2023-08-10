@@ -48,8 +48,7 @@ T MaxPriorityQueue<T>::queueExtractMax() {
         return false;
 
     T max = this->getRoot();
-    //this->swap(this->getTree()->at(0), this->getTree()->at(this->getHeapSize()-1));
-    this->setTree(0, this->getTail());
+    this->swap(this->getTree()->at(0), this->getTree()->at(this->getHeapSize()-1));
     this->setHeapSize(this->getHeapSize()-1);
     this->maxHeapify(0);
 
@@ -70,7 +69,6 @@ void MaxPriorityQueue<T>::queueIncreasePriority(int i, T key) {
 
     while(i > 0 && this->getTree()->at(this->parent(i)) < this->getTree()->at(i)) {
         this->swap(this->getTree()->at(i), this->getTree()->at(this->parent(i)));
-        //this->swap(i, this->getTree()->at(this->parent(i)));
         i = this->parent(i);
     }
 }
