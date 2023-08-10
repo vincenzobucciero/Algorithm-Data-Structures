@@ -51,12 +51,8 @@ class MinHeap {
 
         void insert(T x);
         void printTree();
+        void inOrderAscii(int i , int spazio);
         void printAsciiTree();
-
-        //esercizio 1 slide 10
-        //aggiungere il metodo heapSort alla classe heap
-        void heapSort();
-        void printVector();
 };
 
 template <typename T>
