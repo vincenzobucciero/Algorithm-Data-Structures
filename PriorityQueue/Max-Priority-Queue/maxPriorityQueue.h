@@ -48,7 +48,8 @@ T MaxPriorityQueue<T>::queueExtractMax() {
         return false;
 
     T max = this->getRoot();
-    this->swap(this->getTree()->at(0), this->getTree()->at(this->getHeapSize()-1));
+    //this->swap(this->getTree()->at(0), this->getTree()->at(this->getHeapSize()-1));
+    this->setTree(0, this->getTail());
     this->setHeapSize(this->getHeapSize()-1);
     this->maxHeapify(0);
 
@@ -68,11 +69,12 @@ void MaxPriorityQueue<T>::queueIncreasePriority(int i, T key) {
     this->setTree(i, key);
 
     while(i > 0 && this->getTree()->at(this->parent(i)) < this->getTree()->at(i)) {
-        this->swap(this->getTree()->at(this->parent(i)), this->getTree()->at(i));
+        this->swap(this->getTree()->at(i), this->getTree()->at(this->parent(i)));
         //this->swap(i, this->getTree()->at(this->parent(i)));
         i = this->parent(i);
     }
 }
+
 
 template <typename T>
 void MaxPriorityQueue<T>::printingTree() {
@@ -82,8 +84,11 @@ void MaxPriorityQueue<T>::printingTree() {
     }
 }
 
+
 template <typename T>
 void MaxPriorityQueue<T>::printingAsciiTree() {
     cout << "\nPrinting Ascii Max Heap Tree: " << endl;
     this->inOrderAscii(0, 0);
 }
+
+

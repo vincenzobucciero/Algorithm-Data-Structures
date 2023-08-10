@@ -40,7 +40,6 @@ class MaxHeap {
         int getHeapSize() { return this->heapSize; }
 
         void maxHeapify(int i);
-        void inOrderAscii(int i, int spazio);
         void swap( T& a,  T& b);
 
     public:
@@ -50,6 +49,7 @@ class MaxHeap {
 
         void insert(T x);
         void printingTree();
+        void inOrderAscii(int i, int spazio);
         void printingAsciiTree();
 };
 
@@ -114,9 +114,13 @@ void MaxHeap<T>::inOrderAscii(int i, int spazio) {
 
 template <typename T>
 void MaxHeap<T>::insert(T x) {
-    this->tree->push_back(x);
     heapSize++;
-    buildMaxHeap();
+    this->tree->push_back(x);
+    int i = heapSize-1;
+    while(i != 0 && this->tree->at(parent(i)) < this->tree->at(i)) {
+        swap(this->tree->at(i), this->tree->at(parent(i)));
+        i = parent(i);
+    }
 }
 
 template <typename T>

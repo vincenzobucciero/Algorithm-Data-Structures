@@ -14,28 +14,30 @@
 using namespace std;
 
 int main() {
-    MaxPriorityQueue<int> myMaxQueue;
+    MaxPriorityQueue<int> priorityQueue;
 
-    myMaxQueue.queueInsert(100);
-    myMaxQueue.queueInsert(200);
-    myMaxQueue.queueInsert(20);
-    myMaxQueue.queueInsert(420);
-    myMaxQueue.queueInsert(80);
-    myMaxQueue.queueInsert(820);
-    myMaxQueue.queueInsert(1020);
-    myMaxQueue.queueInsert(600);
+    priorityQueue.queueInsert(15);
+    priorityQueue.queueInsert(10);
+    priorityQueue.queueInsert(25);
+    priorityQueue.queueInsert(5);
+    priorityQueue.queueInsert(30);
 
-    myMaxQueue.printingTree();
-    myMaxQueue.printingAsciiTree();
+    priorityQueue.printingTree();
+    priorityQueue.printingAsciiTree();
 
-    cout << "Maximum : " << myMaxQueue.queueMaximum() << endl;
+    cout << "\nMaximum element: " << priorityQueue.queueMaximum();
 
-    cout << "Extract Max : " << myMaxQueue.queueExtractMax() << endl;
+    priorityQueue.queueIncreasePriority(2, 40);
+    cout << "\nAfter increasing key at index 2 to 40:";
+    priorityQueue.printingTree();
+    priorityQueue.printingAsciiTree();
 
-    myMaxQueue.queueIncreasePriority(2, 20);
+    //int extractedMax = priorityQueue.queueExtractMax();
+    cout << "\nExtracted max element: " << priorityQueue.queueExtractMax() << endl;
+    cout << "\nHeap after extraction:";
+    priorityQueue.printingTree();
+    priorityQueue.printingAsciiTree();
 
-    myMaxQueue.printingTree();
-    myMaxQueue.printingAsciiTree();
 
     return 0;
 }
