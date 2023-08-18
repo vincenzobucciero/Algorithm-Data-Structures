@@ -145,34 +145,52 @@ Node<T> *BinarySearchTree<T>::maximum(Node<T>* node) {
     return node;
 }
 
+/**
+ * Esemplificazione del metodo Node<T> *BinarySearchTree<T>::maximum(Node<T>* node)
+*/
 template <typename T>
 Node<T> *BinarySearchTree<T>::maximum() {
     return this->maximum(root);
 }
 
+/**
+ * trova il nodo con la chiave minima nell'albero binario di ricerca.
+ * @param node nodo in ingresso
+ * @return un puntatore al nodo con la chiave minima nel sottoalbero radicato nel nodo dato.
+*/
 template <typename T>
 Node<T> *BinarySearchTree<T>::minimum(Node<T>* node) {
-    while(node->getLeft() != nullptr) {
+    while(node->getLeft() != nullptr) {     //fin quando non trova il nodo con chiave minima
         node = node->getLeft();
     }
     return node;
 }
 
+/**
+ * Esemplificazione del metodo Node<T> *BinarySearchTree<T>::minimum(Node<T>* node)
+*/
 template <typename T>
 Node<T> *BinarySearchTree<T>::minimum() {
     return this->minimum(root);
 }
 
+/**
+ * Metodo che restituisce il nodo che contiene il valore del predecessore di un dato valore key all'interno dell'albero.
+ * @param key valore key per il quale stai cercando il predecessore nell'albero binario di ricerca.
+ * @return y, predecessore del nodo con chiave key
+*/
 template <typename T>
 Node<T> *BinarySearchTree<T>::predecessor(T key) {
-    Node<T>* nodeTmp = this->search(key, this->getRoot());
+    Node<T>* nodeTmp = this->search(key, this->getRoot());  //nodo di partenza con valore key per la ricerca del predecessore
 
-    if(nodeTmp->getLeft() != nullptr)
-        return maximum(nodeTmp->getLeft());
+    if(nodeTmp->getLeft() != nullptr)   //se nodo corrente ha un sottolabero sinistro
+        return maximum(nodeTmp->getLeft());     //se si, trova il max del sottoalbero sinistro
     
+    //se il nodo non ha figlio sinistro, allora si crea un nuovo nodo y che viene inizializzato come genitore del nodo
     Node<T>* y = nodeTmp->getParent();
 
-    while(y != nullptr && nodeTmp == nodeTmp->getLeft()) {
+    //Questo ciclo risale l'albero lungo i figli sinistri finché non si trova un genitore il cui figlio sinistro non è il nodo corrente.
+    while(y != nullptr && nodeTmp == nodeTmp->getLeft()) {      //fin quando y non è nullo e nodeTmp è figlio sx di y
         nodeTmp = y;
         y = y->getParent();
     }
@@ -180,16 +198,23 @@ Node<T> *BinarySearchTree<T>::predecessor(T key) {
     return y;
 }
 
+/**
+ * Metodo che restituisce il nodo che contiene il valore del successore di un dato valore key all'interno dell'albero.
+ * @param key valore key per il quale stai cercando il successore nell'albero binario di ricerca.
+ * @return y, successore del nodo con chiave key
+*/
 template <typename T>
 Node<T> *BinarySearchTree<T>::successor(T key) {
-    Node<T>* nodeTmp = this->search(key, this->getRoot());
+    Node<T>* nodeTmp = this->search(key, this->getRoot());   //nodo di partenza con valore key per la ricerca del predecessore
 
-    if(nodeTmp->getRight() != nullptr)
-        return minimum(nodeTmp->getRight());
+    if(nodeTmp->getRight() != nullptr)      //se nodo corrente ha un sottolabero destro
+        return minimum(nodeTmp->getRight());    //se si, trova il min del sottoalbero destro
     
+    //se il nodo non ha figlio destro, allora si crea un nuovo nodo y che viene inizializzato come genitore del nodo
     Node<T>* y = nodeTmp->getParent();
 
-    while(y != nullptr && nodeTmp == nodeTmp->getRight()) {
+    //Questo ciclo risale l'albero lungo i figli destri finché non si trova un genitore il cui figlio destro non è il nodo corrente.
+    while(y != nullptr && nodeTmp == nodeTmp->getRight()) {     //fin quando y non è nullo e nodeTmp è figlio dx di y
         nodeTmp = y;
         y = y->getParent();
     }
@@ -197,18 +222,24 @@ Node<T> *BinarySearchTree<T>::successor(T key) {
     return y;
 }
 
+/**
+ * Metodo che inserisce un nuovo nodo con un valore key all'interno di un albero binario di ricerca.
+ * @param key valore key del nodo che si vuole inserire
+ * @param prev nodo genitore al quale si vuole aggiungere il nuovo nodo
+ * @param curr rappresenta il nuovo nodo che si crea e si inserisce.
+*/
 template <typename T>
 void BinarySearchTree<T>::insNode(T key, Node<T>* prev, Node<T>* curr) {
-    if(prev != nullptr) {
-        curr = new Node<T>(key);
-        curr->setParent(prev);
+    if(prev != nullptr) {   //controllo se esiste un genitore
+        curr = new Node<T>(key);    //creo nuovo nodo curr con valore key
+        curr->setParent(prev);  //imposto prev come genitore di curr
 
-        if(key > prev->getKey())
-            prev->setRight(curr);
+        if(key > prev->getKey())    //se il valore di key è > di prev
+            prev->setRight(curr);       //inserisci key nel sottoalbero sinistro
         else    
-            prev->setLeft(curr);
+            prev->setLeft(curr);        //inserisco key nel sottoalbero sinistro
     } else {
-        curr = new Node<T>(key);
+        curr = new Node<T>(key);    //inserisco il nuovo nodo come radice dell'albero
     }
 }
 
@@ -225,51 +256,71 @@ void BinarySearchTree<T>::inOrderAscii(Node<T>* root, int spazio) {
     inOrderAscii(root->getLeft(), spazio);
 }
 
+/**
+ * Metodo per la sostituzione di un sottoalbero con un altro all'interno di un albero binario di ricerca.
+ * @param u puntatore a nodo u che rappresenta il sottoalbero che viene rimosso
+ * @param v puntatore a nodo v che rappresenta il sottoalbero che verrà messo al posto di u
+*/
 template <typename T>
 void BinarySearchTree<T>::transplant(Node<T>* u, Node<T>* v) {
-    if(u->getParent() == nullptr)
-        this->root = v;
-    else if (u == u->getParent()->getLeft())
-        u->getParent()->setLeft(v);
-    else
-        u->getParent()->setRight(v);
+    if(u->getParent() == nullptr)   //verifico se u è radice dell'albero
+        this->root = v;     //intero albero viene sostituito con quello radicato in v
+    else if (u == u->getParent()->getLeft())    //verifico se u è figlio sinistro del genitore
+        u->getParent()->setLeft(v);     //il figlio sx del genitore lo imposto a v
+    else    //u sarà figlio dx del genitore
+        u->getParent()->setRight(v);        //il figlio dx del genitore lo imposto a v
 
-    if(v != nullptr)
-        v->setParent(u->getParent());
+    if(v != nullptr)        //se v non è nullo
+        v->setParent(u->getParent());       //il genitore di v viene impostato come genitore di u
+        //Questo collega correttamente il sottoalbero radicato in v al genitore che stava originariamente 
+        //sopra al sottoalbero radicato in u.
 }
 
+/**
+ * Metodo che inserisce un nuovo nodo con un valore key all'interno di un albero binario di ricerca.
+ * @param key valore key del nodo che si vuole inserire
+ * @param prev nodo genitore al quale si vuole aggiungere il nuovo nodo
+ * @param curr rappresenta il nuovo nodo che si crea e si inserisce.
+*/
 template <typename T>
 void BinarySearchTree<T>::insert(T key, Node<T>* prev, Node<T>* curr) {
-    if(this->root == nullptr)
-        this->root = new Node<T>(key);
+    if(this->root == nullptr)   //se albero è vuoto
+        this->root = new Node<T>(key);      //key sarà la radice dell'albero
     
-    if(curr == nullptr)
-        insNode(key, prev, curr);
-    else if(key > curr->getKey())
-        insert(key, curr, curr->getRight());
+    if(curr == nullptr)     //se curr è nullo
+        insNode(key, prev, curr);   //inserisco il nuovo nodo con valore key come figlio di prev
+    else if(key > curr->getKey())       //se key è > di curr
+        insert(key, curr, curr->getRight());       //inserisco il nuovo nodo nel sottolabero destro
     else 
-        insert(key, curr, curr->getLeft());
+        insert(key, curr, curr->getLeft());     //sottoalbero sinistro
 }
 
+/**
+ * Esemplificazione del metodo void BinarySearchTree<T>::insert(T key, Node<T>* prev, Node<T>* curr)
+*/
 template <typename T>
 void BinarySearchTree<T>::insert(T key) {
     this->insert(key, nullptr, this->root);
 }
 
+/**
+ * Metodo che rimuove un nodo con un valore key da un albero binario di ricerca
+ * @param key chiave del nodo da voler rimuovere
+*/
 template <typename T>
 void BinarySearchTree<T>::deleteNode(T key) {
-    Node<T>* nodeTmp = this->search(key, root);
+    Node<T>* nodeTmp = this->search(key, root);     //viene cercato il nodo con valore key
 
-    if(nodeTmp != nullptr) {
-        if(nodeTmp->getLeft() == nullptr)
-            this->transplant(nodeTmp, nodeTmp->getRight());
-        else if(nodeTmp->getRight() == nullptr)
-            this->transplant(nodeTmp, nodeTmp->getLeft());
-        else {
-            Node<T>* y = this->minimum(nodeTmp->getRight());
-            if(y->getParent() != nodeTmp) {
-                this->transplant(y, y->getRight());
-                y->setRight(nodeTmp->getRight());
+    if(nodeTmp != nullptr) {    //se esiste il nodo
+        if(nodeTmp->getLeft() == nullptr)   //se il nodo ha un figlio sinistro nullo
+            this->transplant(nodeTmp, nodeTmp->getRight());    //sostituisco il nodo con il suo figlio destro
+        else if(nodeTmp->getRight() == nullptr)     //se il nodo ha un figlio destro nullo
+            this->transplant(nodeTmp, nodeTmp->getLeft());  //sostituisco il nodo con il suo figlio sinistro
+        else {      //se il nodo ha entrambi i figli
+            Node<T>* y = this->minimum(nodeTmp->getRight());    //trovo il successore del nodo
+            if(y->getParent() != nodeTmp) {     //se il genitore di y non è nodeTmp
+                this->transplant(y, y->getRight());     //sostituisco y con il suo sottoalbero destro
+                y->setRight(nodeTmp->getRight());   //il sottoalbero destro di y lo assegno come sottoalbero destro di nodeTmp
                 y->getRight()->setParent(y);
             }
 
@@ -280,27 +331,41 @@ void BinarySearchTree<T>::deleteNode(T key) {
     }
 }
 
+/**
+ * Esemplificazione del metodo void BinarySearchTree<T>::preOrderView(Node<T>* node)
+*/
 template <typename T>
 void BinarySearchTree<T>::preOrder() {
     cout << endl << "***preOrder***" << endl;
     this->preOrderView(root);
 }
 
+/**
+ * Metodo che esegue una visita preOrder di un albero binario di ricerca
+ * @param node puntatore al nodo dal quale far partire la ricerca
+*/
 template <typename T>
 void BinarySearchTree<T>::preOrderView(Node<T>* node) {
-    if(node == nullptr)
+    if(node == nullptr)     //se node è nullo non esisste niente da visitare
         return;
-    cout << node->getKey() << " ";
-    preOrderView(node->getLeft());
-    preOrderView(node->getRight());
+    cout << node->getKey() << " ";      //stampa del nodo corrente  
+    preOrderView(node->getLeft());  //ricorsione su sottoalbero sinistro
+    preOrderView(node->getRight());     //ricorsione su sottoalbero destro
 }
 
+/**
+ * Esemplificazione del metodo void BinarySearchTree<T>::inOrderView(Node<T>* node)
+*/
 template <typename T>
 void BinarySearchTree<T>::inOrder() {
     cout << endl << "***inOrder***" << endl;
     this->inOrderView(root);
 }
 
+/**
+ * Metodo che esegue una visita inOrder di un albero binario di ricerca
+ * @param node puntatore al nodo dal quale far partire la ricerca
+*/
 template <typename T>
 void BinarySearchTree<T>::inOrderView(Node<T>* node) {
     if(node == nullptr)
@@ -310,12 +375,19 @@ void BinarySearchTree<T>::inOrderView(Node<T>* node) {
     preOrderView(node->getRight());
 }
 
+/**
+ * Esemplificazione del metodo void BinarySearchTree<T>::postOrderView(Node<T>* node)
+*/
 template <typename T>
 void BinarySearchTree<T>::postOrder() {
     cout << endl << "***postOrder***" << endl;
     this->postOrderView(root);
 }
 
+/**
+ * Metodo che esegue una visita inOrder di un albero binario di ricerca
+ * @param node puntatore al nodo dal quale far partire la ricerca
+*/
 template <typename T>
 void BinarySearchTree<T>::postOrderView(Node<T>* node) {
     if(node == nullptr)
@@ -325,6 +397,9 @@ void BinarySearchTree<T>::postOrderView(Node<T>* node) {
     cout << node->getKey() << " ";
 }
 
+/**
+ * Metodo per la stampa grafica dell'albero
+*/
 template <typename T>
 void BinarySearchTree<T>::printAsciiTree() {
     cout << endl << "***Binary Search Tree***" << endl;
