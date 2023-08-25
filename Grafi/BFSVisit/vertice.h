@@ -14,22 +14,27 @@ enum class Color {
     WHITE, GRAY, BLACK
 };
 
+/**
+ * Rappresenta un vertice all'interno del grafo orientato
+*/
 template <typename T>
 class Vertice {
     private:
         T value;    //valore del vertice
         Color colore;   //colore vertice durante la visita
-        Vertice<T>* predecessore;   //predecessore di un vertice
+        Vertice<T>* predecessore;   //puntatore al predecessore di un vertice nell'albero BF che viene costruito
 
-        int distanza;   //distanza del vertice dalla sorgente
+        int distanza;   //distanza del vertice dalla sorgente durante la visita 
     public:
         Vertice(T value);
 
+        //metodi setter
         void setValue(T value) { this->value = value; }
         void setColore(Color colore) { this->colore = colore; }
         void setPredecessore(Vertice<T>* predecessore) { this->predecessore = predecessore; }
         void setDistanza(int distanza) { this->distanza = distanza; }
 
+        //metodi getter
         T getValue() { return this->value; }
         Color getColore() { return this->colore; }
         Vertice<T>* getPredecessore() { return this->predecessore; }
@@ -73,6 +78,10 @@ class Vertice {
         }
 };
 
+/**
+ * Costruttore che inizializza un vertice con il valore specificato
+ * @param value valore del vertice
+*/
 template <typename T>
 Vertice<T>::Vertice(T value) {
     this->value = value;
