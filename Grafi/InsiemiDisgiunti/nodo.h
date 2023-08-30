@@ -10,7 +10,7 @@
 #include <vector>
 #include <list>
 
-#include "/home/vincenzo/Desktop/asd/Algorithm-Data-Structures/InsiemiDisgiunti/vertice.h"
+#include "/home/vincenzo/Desktop/asd/Algorithm-Data-Structures/Grafi/InsiemiDisgiunti/vertice.h"
 
 using namespace std;
 
