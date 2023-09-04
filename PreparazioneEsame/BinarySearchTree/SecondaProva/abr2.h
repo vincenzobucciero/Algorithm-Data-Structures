@@ -21,7 +21,7 @@ class Abr2 {
         Nodo2<T>* findSuccessor(Nodo2<T>* x);
         Nodo2<T>* findPredecessor(Nodo2<T>* x);
 
-        void inOrderAscii(Nodo<T>* x, int spazio);
+        void inOrderAscii(Nodo2<T>* x, int spazio);
     public:
         Abr2() { this->root = nullptr; }
 
@@ -37,6 +37,10 @@ class Abr2 {
 
         void transplant(Nodo2<T>* x, Nodo2<T>* y);
         void treeDelete(Nodo2<T>* x);
+
+        void preOrderVisit(Nodo2<T>* x);
+        void inOrderVisit(Nodo2<T>* x);
+        void postOrderVisit(Nodo2<T>* x);
 
         void printAsciiTree();
 };
@@ -142,6 +146,86 @@ Nodo2<T>* Abr2<T>::treeSearch(Nodo2<T>* x, int key) {
         return treeSearch(x->getLeft(), key);
     else
         return treeSearch(x->getRight(), key);
+}
+
+
+template <typename T>
+void Abr2<T>::transplant(Nodo2<T>* x, Nodo2<T>* y) {
+    if(x->getParent() == nullptr)
+        root = y;
+    else if(x == x->getParent()->getLeft())
+        x->getParent()->setLeft(y);
+    else 
+        x->getParent()->setRight(y);
+    if(y != nullptr)
+        y->setParent(x->getParent());
+}
+
+template <typename T>
+void Abr2<T>::treeDelete(Nodo2<T>* x) {
+    if(x == nullptr)
+        x = nullptr;
+    if(x->getLeft() == nullptr)
+        transplant(x, x->getRight());
+    else if(x->getRight() == nullptr)
+        transplant(x, x->getLeft());
+    else {
+        Nodo2<T>* y = successor(x);
+        if(y->getParent() != x) {
+            transplant(y, y->getParent());
+            y->setRight(x->getRight());
+            y->getRight()->setParent(y);
+        }
+        transplant(x, y);
+        y->setLeft(x->getLeft());
+        y->getLeft()->setParent(y);
+    }
+}
+
+template <typename T>
+void Abr2<T>::inOrderAscii(Nodo2<T>* x, int spazio) {
+    if(x == nullptr)
+        return;
+    spazio += vuoto;
+    inOrderAscii(x->getRight(), spazio);
+    cout << endl;
+    for(int i = vuoto; i < spazio; i++) 
+        cout << " ";
+    cout << x->getInfo() << endl;
+    inOrderAscii(x->getLeft(), spazio);
+}
+
+template <typename T>
+void Abr2<T>::printAsciiTree() {
+    cout << "Printing tree: " << endl;
+    inOrderAscii(root, 0);
+}
+
+template <typename T>
+void Abr2<T>::preOrderVisit(Nodo2<T>* x) {
+    if(x != nullptr) {
+        cout << x->getInfo() << "  ";
+        preOrderVisit(x->getLeft());
+        preOrderVisit(x->getRight());
+    }
+}
+
+template <typename T>
+void Abr2<T>::inOrderVisit(Nodo2<T>* x) {
+    if(x != nullptr) {
+        preOrderVisit(x->getLeft());
+        cout << x->getInfo() << "  ";
+        preOrderVisit(x->getRight());
+    }
+}
+
+template <typename T>
+void Abr2<T>::postOrderVisit(Nodo2<T>* x) {
+    if(x != nullptr) {
+        preOrderVisit(x->getLeft());
+        preOrderVisit(x->getRight());
+        cout << x->getInfo() << "  ";
+    }
 }
 
 
