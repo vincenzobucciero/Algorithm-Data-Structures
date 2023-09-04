@@ -49,7 +49,7 @@ template <typename T>
 void Abr2<T>::insertNodo(T value, Nodo2<T>* prev, Nodo2<T>* curr) {
     curr = new Nodo2<T>(value);
     curr->setParent(prev);
-    if(curr->getInfo() < prev->getInfo)
+    if(curr->getInfo() < prev->getInfo())
         prev->setLeft(curr);
     else 
         prev->setRight(curr);
@@ -123,7 +123,7 @@ Nodo2<T>* Abr2<T>::getMaximum(Nodo2<T>* x) {
     if(root == nullptr)
         return nullptr;
     else if(x->getRight() == nullptr)
-        return x,
+        return x;
     else    
         return getMaximum(x->getRight());
 }
