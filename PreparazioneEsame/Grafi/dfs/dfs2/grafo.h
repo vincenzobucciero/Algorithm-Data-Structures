@@ -101,6 +101,7 @@ void Grafo<T>::dfsVisit(Vertice<T>* vertice) {
     }
     vertice->setColor(Color::BLACK);
     vertice->setTFine(time++);
+    myQueue.push(vertice->getValue());
 }
 
 
