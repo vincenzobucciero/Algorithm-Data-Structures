@@ -13,7 +13,7 @@
 using namespace std;
 
 int main() {
-    Grafo<int> grafo;
+    Grafo<int, int> grafo;
 
     ifstream file;
     string myInputFile = "fileInput.txt";
@@ -23,7 +23,7 @@ int main() {
     string line;
 
     int i = 0;
-    int num_vertici = 0, num_archi = 0, vertice, arco;
+    int num_vertici = 0, num_archi = 0, vertice, arco, peso;
 
     file.open(myInputFile);
     output.open(myOutputFile);
@@ -37,6 +37,7 @@ int main() {
         } else {
             lineIn >> vertice;
             lineIn >> arco;
+            lineIn >> peso;
 
             Vertice<int>* v1 = new Vertice<int>(vertice);
             Vertice<int>* v2 = new Vertice<int>(arco);
@@ -46,7 +47,7 @@ int main() {
             if(grafo.searchIndirizzo(v2) == -1)
                 grafo.addNodo(v2);
 
-            grafo.addArco(grafo.getIndirizzoVertice(vertice), grafo.getIndirizzoVertice(arco));
+            grafo.addArco(grafo.getIndirizzoVertice(vertice), grafo.getIndirizzoVertice(arco), peso);
         }
     }
 

@@ -11,10 +11,10 @@
 
 using namespace std;
 
-template <typename T>
+template <typename T, typename WeightType>
 class Grafo {
     private:
-        vector<Nodo<T>> grafo;
+        vector<Nodo<T, WeightType>> grafo;
         list<Vertice<T>*> getListAdj(Vertice<T>* vertice);
 
         int tempo;
@@ -30,29 +30,36 @@ class Grafo {
         int searchIndirizzo(Vertice<T>* vertice);
         Vertice<T>* getIndirizzoVertice(T value);
 
-        void addNodo(Nodo<T> nodo);
-        void addArco(Vertice<T>* v1, Vertice<T>* v2);
+        void addNodo(Nodo<T, WeightType> nodo);
+        void addArco(Vertice<T>* v1, Vertice<T>* v2, WeightType peso);
 
         void dfs();
 
-        friend ostream& operator<<(ostream& out, Grafo<T>& obj) {
+        friend ostream& operator<<(ostream& out, Grafo<T, WeightType>& obj) {
             for(auto i : obj.grafo)
                 out << i << endl;
             return out;
         }
 };
 
-template <typename T>
-list<Vertice<T>*> Grafo<T>::getListAdj(Vertice<T>* vertice) {
-    for(auto i : grafo) {
-        if(i.getVertice() == vertice)
-            return i.getList();
+template <typename T, typename WeightType>
+list<Vertice<T>*> Grafo<T, WeightType>::getListAdj(Vertice<T>* vertice) {
+    list<Vertice<T>*> adjVertices;
+    
+    for (auto& node : grafo) {
+        if (node.getVertice() == vertice) {
+            for (const auto& edge : node.getList()) {
+                adjVertices.push_back(edge.first);
+            }
+            break;
+        }
     }
-    return grafo.at(0).getList();
+    
+    return adjVertices;
 }
 
-template <typename T>
-int Grafo<T>::searchIndirizzo(Vertice<T>* vertice) {
+template <typename T, typename WeightType>
+int Grafo<T, WeightType>::searchIndirizzo(Vertice<T>* vertice) {
     for(int i = 0; i < grafo.size(); i++) {
         if(this->grafo.at(i).getVertice()->getValue() == vertice->getValue())
             return i;
@@ -60,8 +67,8 @@ int Grafo<T>::searchIndirizzo(Vertice<T>* vertice) {
     return -1;
 }
 
-template <typename T>
-Vertice<T>* Grafo<T>::getIndirizzoVertice(T value) {
+template <typename T, typename WeightType>
+Vertice<T>* Grafo<T, WeightType>::getIndirizzoVertice(T value) {
     for(auto i : grafo) {
         if(i.getVertice()->getValue() == value)
             return i.getVertice();
@@ -69,19 +76,19 @@ Vertice<T>* Grafo<T>::getIndirizzoVertice(T value) {
     return nullptr;
 }
 
-template <typename T>
-void Grafo<T>::addNodo(Nodo<T> nodo) {
+template <typename T, typename WeightType>
+void Grafo<T, WeightType>::addNodo(Nodo<T, WeightType> nodo) {
     grafo.push_back(nodo);
 }
 
-template <typename T>
-void Grafo<T>::addArco(Vertice<T>* v1, Vertice<T>* v2) {
+template <typename T, typename WeightType>
+void Grafo<T, WeightType>::addArco(Vertice<T>* v1, Vertice<T>* v2, WeightType peso) {
     int vertice = searchIndirizzo(v1);
-    grafo.at(vertice).append(v2);
+    grafo.at(vertice).append(v2, peso);
 }
 
-template <typename T>
-void Grafo<T>::dfsVisit(Vertice<T>* vertice) {
+template <typename T, typename WeightType>
+void Grafo<T, WeightType>::dfsVisit(Vertice<T>* vertice) {
     vertice->setColor(Color::gray);
     vertice->setTempoInizioVisita(tempo++);
     
@@ -98,8 +105,8 @@ void Grafo<T>::dfsVisit(Vertice<T>* vertice) {
     q.push(vertice->getValue());
 }
 
-template <typename T>
-void Grafo<T>::dfs() {
+template <typename T, typename WeightType>
+void Grafo<T, WeightType>::dfs() {
     for(auto u : grafo) {
         u.getVertice()->setColor(Color::white);
         u.getVertice()->setPredecessore(nullptr);

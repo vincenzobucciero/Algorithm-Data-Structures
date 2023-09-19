@@ -10,23 +10,23 @@
 
 using namespace std;
 
-template <typename T>
+template <typename T, typename WeightType>
 class Nodo {
     private:
         Vertice<T>* vertice;
-        list<Vertice<T>*> listaAdiacenza;
+        list<pair<Vertice<T>*, WeightType>> listaAdiacenza;
     public:
         Nodo(Vertice<T>* vertice) {this->vertice = vertice;}
 
         Vertice<T>* getVertice() {return this->vertice;}
-        list<Vertice<T>*> getList() {return this->listaAdiacenza;}
+        list<pair<Vertice<T>*, WeightType>> getList() {return this->listaAdiacenza;}
 
-        void append(Vertice<T>* vertice) {listaAdiacenza.push_back(vertice);}
+        void append(Vertice<T>* vertice, WeightType peso) {listaAdiacenza.push_back(make_pair(vertice, peso));}
 
-        friend ostream& operator<<(ostream& out, const Nodo<T>& obj) {
+        friend ostream& operator<<(ostream& out, const Nodo<T, WeightType>& obj) {
             out << *obj.vertice << " --> ";
             for(auto i : obj.listaAdiacenza)
-                out << *i << " --> ";
+                out << "(" << i.first->getValue() << ", Peso: " << i.second << ") --> ";
             out << "NULL";
             return out;
         }
