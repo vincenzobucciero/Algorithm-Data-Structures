@@ -17,19 +17,19 @@ template <typename T>
 class Nodo {
     private:
         Vertice<T>* vertice;
-        list<Vertice<T>*> listaAdiacenza;
+        list<pair<Vertice<T>*, int>> listaAdiacenza;
     public:
         Nodo(Vertice<T>* vertice) { this->vertice = vertice; }
 
         Vertice<T>* getVertice() { return this->vertice; }
-        list<Vertice<T>*> getLista() { return this->listaAdiacenza; }
+        list<pair<Vertice<T>*, int>> getLista() { return this->listaAdiacenza; }
 
-        void append(Vertice<T>* vertice) { this->listaAdiacenza.push_back(vertice); }
+        void append(Vertice<T>* vertice, int peso) { this->listaAdiacenza.push_back(make_pair(vertice, peso)); }
 
         friend ostream& operator<<(ostream& out, const Nodo<T>& obj) {
             out << *obj.vertice << " -> ";
-            for(auto i : obj.listaAdiacenza)
-                out << *i << " -> ";
+            for(const auto& pair : obj.listaAdiacenza)
+                out << pair.first->getValue() << " (" << pair.second << " peso) -> ";
             out << "NULL";
 
             return out;
