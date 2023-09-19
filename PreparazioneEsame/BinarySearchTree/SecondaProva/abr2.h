@@ -22,6 +22,9 @@ class Abr2 {
         Nodo2<T>* findPredecessor(Nodo2<T>* x);
 
         void inOrderAscii(Nodo2<T>* x, int spazio);
+
+        bool checkBlackLeaves(Nodo2<T>* x);
+        bool checkNeroCount(Nodo2<T>* x, int expectedCount);
     public:
         Abr2() { this->root = nullptr; }
 
@@ -43,6 +46,8 @@ class Abr2 {
         void postOrderVisit(Nodo2<T>* x);
 
         void printAsciiTree();
+
+        bool isRedBlackTree(Nodo2<T>* root);
 };
 
 template <typename T>
@@ -226,6 +231,66 @@ void Abr2<T>::postOrderVisit(Nodo2<T>* x) {
         preOrderVisit(x->getRight());
         cout << x->getInfo() << "  ";
     }
+}
+
+template <typename T>
+bool Abr2<T>::isRedBlackTree(Nodo2<T>* root) {
+    // Controlla le proprietà dell'albero rosso-nero
+
+    // Proprietà 1: Ogni nodo è rosso o nero.
+    // Implementazione della verifica: puoi farlo tramite una funzione ricorsiva.
+    if (root == nullptr)
+        return true;
+
+    // Proprietà 4: Se un nodo è rosso, i suoi figli sono neri.
+    if (root->getInfo() < 0) {
+        if (root->getLeft() != nullptr && root->getLeft()->getInfo() < 0)
+            return false;
+        if (root->getRight() != nullptr && root->getRight()->getInfo() < 0)
+            return false;
+    }
+
+    // Conta il numero di nodi neri lungo tutti i cammini da una foglia.
+    int neroCount = 0;
+    Nodo2<T>* temp = root;
+    while (temp != nullptr) {
+        if (temp->getInfo() >= 0)
+            neroCount++;
+        temp = temp->getLeft();
+    }
+
+    // Proprietà 5: Ogni cammino da un nodo a una foglia deve avere lo stesso numero di nodi neri.
+    if (!checkNeroCount(root, neroCount))
+        return false;
+
+    // Proprietà 2: La radice è nera.
+    if (root->getInfo() < 0)
+        return false;
+
+    // Proprietà 3: Tutte le foglie sono nere.
+    return checkBlackLeaves(root);
+}
+
+template <typename T>
+bool Abr2<T>::checkBlackLeaves(Nodo2<T>* x) {
+    if (x == nullptr)
+        return true;
+    if (x->getInfo() < 0) {
+        if (x->getLeft() != nullptr && x->getLeft()->getInfo() < 0)
+            return false;
+        if (x->getRight() != nullptr && x->getRight()->getInfo() < 0)
+            return false;
+    }
+    return checkBlackLeaves(x->getLeft()) && checkBlackLeaves(x->getRight());
+}
+
+template <typename T>
+bool Abr2<T>::checkNeroCount(Nodo2<T>* x, int expectedCount) {
+    if (x == nullptr)
+        return expectedCount == 0;
+    if (x->getInfo() >= 0)
+        expectedCount--;
+    return checkNeroCount(x->getLeft(), expectedCount) && checkNeroCount(x->getRight(), expectedCount);
 }
 
 
