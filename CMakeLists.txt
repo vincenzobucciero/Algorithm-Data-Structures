@@ -1,0 +1,313 @@
+cmake_minimum_required(VERSION 3.26)
+project(Algorithm_Data_Structures)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(ABR)
+include_directories(ABR/BinarySearchTree)
+include_directories(algoritmiDiOrdinamento)
+include_directories(algoritmiDiOrdinamento/BubbleSort)
+include_directories(algoritmiDiOrdinamento/HybridSort)
+include_directories(algoritmiDiOrdinamento/InsertionSort)
+include_directories(algoritmiDiOrdinamento/MergeSort)
+include_directories(algoritmiDiOrdinamento/ordinamentoLineare)
+include_directories(algoritmiDiOrdinamento/ordinamentoLineare/BucketSort)
+include_directories(algoritmiDiOrdinamento/ordinamentoLineare/CountingSort)
+include_directories(algoritmiDiOrdinamento/ordinamentoLineare/RadixSort)
+include_directories(algoritmiDiOrdinamento/QuickSort)
+include_directories(BinaryTree)
+include_directories(BinaryTree/Altezza)
+include_directories(BinaryTree/Heap)
+include_directories(BinaryTree/Heap/MaxHeap)
+include_directories(BinaryTree/Heap/MinHeap)
+include_directories(BinaryTree/Profondità)
+include_directories(EserciziSlide-Lezione06)
+include_directories(EserciziSlide-Lezione06/esercizio01)
+include_directories(EserciziSlide-Lezione06/esercizio02)
+include_directories(EserciziSlide-Lezione06/esercizio03)
+include_directories(EserciziSlide-Lezione06/esercizio04)
+include_directories(EserciziSlide-Lezione06/esercizio06)
+include_directories(EserciziSlide-Lezione06/maxSubArray)
+include_directories(EserciziSlide-Lezione07)
+include_directories(EserciziSlide-Lezione07/MergeSortRecursive)
+include_directories(EserciziSlide-Lezione07/MergeSortVector)
+include_directories(EserciziSlide-Lezione08)
+include_directories(EserciziSlide-Lezione08/QuickSortDoublePivot)
+include_directories(EserciziSlide-Lezione08/QuickSortVector)
+include_directories(EserciziSlide-Lezione09)
+include_directories(EserciziSlide-Lezione09/Esercizio-01)
+include_directories(EserciziSlide-Lezione09/Esercizio-02)
+include_directories(EserciziSlide-Lezione09/Esercizio-03)
+include_directories(EserciziSlide-Lezione09/Esercizio-03.2)
+include_directories(EserciziSlide-Lezione09/Esercizio-04)
+include_directories(EserciziSlide-Lezione09/Esercizio-05)
+include_directories(EserciziSlide-Lezione09/Esercizio-06)
+include_directories(EserciziSlide-Lezione10)
+include_directories(EserciziSlide-Lezione10/Esercizio-01)
+include_directories(EserciziSlide-Lezione10/Esercizio-02)
+include_directories(EserciziSlide-Lezione10/Esercizio-03)
+include_directories(EserciziSlide-Lezione10/PriorityQueue)
+include_directories(EserciziSlide-Lezione10/PriorityQueue/Max-Priority-Queue)
+include_directories(EserciziSlide-Lezione10/PriorityQueue/Min-priority-Queue)
+include_directories(EserciziSlide-Lezione12)
+include_directories(EserciziSlide-Lezione12/Esercizio03)
+include_directories(EserciziSlide-Lezione12/Esercizio04)
+include_directories(Grafi)
+include_directories(Grafi/BFSVisit)
+include_directories(Grafi/DFSVisit)
+include_directories(Grafi/InsiemiDisgiunti)
+include_directories(Grafi/OrdinamentoTopologico)
+include_directories(Introduction-Data-Structures)
+include_directories(Introduction-Data-Structures/classInheritance)
+include_directories(Introduction-Data-Structures/iterator)
+include_directories(Introduction-Data-Structures/linkedList)
+include_directories(Introduction-Data-Structures/map)
+include_directories(Introduction-Data-Structures/operatorOverload)
+include_directories(Introduction-Data-Structures/opFile)
+include_directories(Introduction-Data-Structures/overLoading)
+include_directories(Introduction-Data-Structures/polymorphism)
+include_directories(Introduction-Data-Structures/thread)
+include_directories(Introduction-Data-Structures/wordCount)
+include_directories(Mst)
+include_directories(Mst/Kruskal)
+include_directories(PreparazioneEsame)
+include_directories(PreparazioneEsame/BinarySearchTree)
+include_directories(PreparazioneEsame/BinarySearchTree/PrimaProva)
+include_directories(PreparazioneEsame/BinarySearchTree/SecondaProva)
+include_directories(PreparazioneEsame/BinarySearchTree/TerzaProva)
+include_directories(PreparazioneEsame/Grafi)
+include_directories(PreparazioneEsame/Grafi/bfs)
+include_directories(PreparazioneEsame/Grafi/bfs/Bfs1)
+include_directories(PreparazioneEsame/Grafi/bfs/Bfs2)
+include_directories(PreparazioneEsame/Grafi/bfs/Bfs3)
+include_directories(PreparazioneEsame/Grafi/bfs/Bfs4)
+include_directories(PreparazioneEsame/Grafi/bfs/bfs5)
+include_directories(PreparazioneEsame/Grafi/dfs)
+include_directories(PreparazioneEsame/Grafi/dfs/dfs1)
+include_directories(PreparazioneEsame/Grafi/dfs/dfs2)
+include_directories(PreparazioneEsame/Grafi/dfs/dfs3)
+include_directories(PreparazioneEsame/Grafi/dfs/dfs4)
+include_directories(PreparazioneEsame/Grafi/dfs/dfs5)
+include_directories(PreparazioneEsame/HeapSort)
+include_directories(PreparazioneEsame/PriorityQueue)
+include_directories(PreparazioneEsame/PriorityQueue/MaxPriorityQueue)
+include_directories(PreparazioneEsame/PriorityQueue/MaxPriorityQueue/PrimaProva)
+include_directories(PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuartaProva)
+include_directories(PreparazioneEsame/PriorityQueue/MaxPriorityQueue/SecondaProva)
+include_directories(PreparazioneEsame/PriorityQueue/MaxPriorityQueue/TerzaProva)
+include_directories(PreparazioneEsame/PriorityQueue/MinPriorityQueue)
+include_directories(PreparazioneEsame/PriorityQueue/MinPriorityQueue/PrimaProva)
+include_directories(PreparazioneEsame/PriorityQueue/MinPriorityQueue/SecondaProva)
+include_directories(PriorityQueue)
+include_directories(PriorityQueue/Max-Priority-Queue)
+include_directories(PriorityQueue/Min-priority-Queue)
+include_directories(programmazioneDinamica)
+include_directories(programmazioneDinamica/DistanzaDiEditing)
+include_directories(programmazioneDinamica/Knapsack)
+include_directories(programmazioneGreedy)
+include_directories(programmazioneGreedy/Esercizio01)
+include_directories(programmazioneGreedy/Esercizio02)
+include_directories(python)
+include_directories(VariousExercises)
+include_directories(VariousExercises/blockChain)
+include_directories(VariousExercises/giocoDel15)
+include_directories(VariousExercises/HelloWorld)
+include_directories(VariousExercises/indovinelloAnfore)
+include_directories(VariousExercises/rispettaVersi)
+
+add_executable(Algorithm_Data_Structures
+        ABR/BinarySearchTree/binarySearchTree.h
+        ABR/BinarySearchTree/main.cpp
+        ABR/BinarySearchTree/node.h
+        algoritmiDiOrdinamento/BubbleSort/main.cpp
+        algoritmiDiOrdinamento/HybridSort/main.cpp
+        algoritmiDiOrdinamento/InsertionSort/main.cpp
+        algoritmiDiOrdinamento/MergeSort/main.cpp
+        algoritmiDiOrdinamento/ordinamentoLineare/BucketSort/main.cpp
+        algoritmiDiOrdinamento/ordinamentoLineare/CountingSort/countingSort.h
+        algoritmiDiOrdinamento/ordinamentoLineare/CountingSort/main.cpp
+        algoritmiDiOrdinamento/ordinamentoLineare/RadixSort/main.cpp
+        algoritmiDiOrdinamento/ordinamentoLineare/RadixSort/radixSort.h
+        algoritmiDiOrdinamento/QuickSort/NormalQuickSort/main.cpp
+        algoritmiDiOrdinamento/QuickSort/RandomizedQuickSort/main.cpp
+        BinaryTree/Altezza/main.cpp
+        BinaryTree/Heap/MaxHeap/main.cpp
+        BinaryTree/Heap/MaxHeap/maxHeap.h
+        BinaryTree/Heap/MinHeap/main.cpp
+        BinaryTree/Heap/MinHeap/minHeap.h
+        BinaryTree/Profondità/main.cpp
+        EserciziSlide-Lezione06/esercizio01/kesimoNumMax.cpp
+        EserciziSlide-Lezione06/esercizio02/main.cpp
+        EserciziSlide-Lezione06/esercizio03/main.cpp
+        EserciziSlide-Lezione06/esercizio04/main.cpp
+        EserciziSlide-Lezione06/esercizio06/main.cpp
+        EserciziSlide-Lezione06/maxSubArray/main.cpp
+        EserciziSlide-Lezione07/MergeSortRecursive/main.cpp
+        EserciziSlide-Lezione07/MergeSortVector/main.cpp
+        EserciziSlide-Lezione08/QuickSortDoublePivot/main.cpp
+        EserciziSlide-Lezione08/QuickSortVector/main.cpp
+        EserciziSlide-Lezione09/Esercizio-01/main.cpp
+        EserciziSlide-Lezione09/Esercizio-02/main.cpp
+        EserciziSlide-Lezione09/Esercizio-03/main.cpp
+        EserciziSlide-Lezione09/Esercizio-03/maxHeap.h
+        EserciziSlide-Lezione09/Esercizio-03.2/main.cpp
+        EserciziSlide-Lezione09/Esercizio-03.2/minHeap.h
+        EserciziSlide-Lezione09/Esercizio-04/main.cpp
+        EserciziSlide-Lezione09/Esercizio-04/minHeap.h
+        EserciziSlide-Lezione09/Esercizio-05/isHeap.h
+        EserciziSlide-Lezione09/Esercizio-05/main.cpp
+        EserciziSlide-Lezione09/Esercizio-06/kHeap.h
+        EserciziSlide-Lezione09/Esercizio-06/main.cpp
+        EserciziSlide-Lezione10/Esercizio-01/main.cpp
+        EserciziSlide-Lezione10/Esercizio-02/main.cpp
+        EserciziSlide-Lezione10/Esercizio-03/main.cpp
+        EserciziSlide-Lezione10/PriorityQueue/Max-Priority-Queue/main.cpp
+        EserciziSlide-Lezione10/PriorityQueue/Max-Priority-Queue/maxHeap.h
+        EserciziSlide-Lezione10/PriorityQueue/Max-Priority-Queue/maxPriorityQueue.h
+        EserciziSlide-Lezione10/PriorityQueue/Min-priority-Queue/main.cpp
+        EserciziSlide-Lezione10/PriorityQueue/Min-priority-Queue/minHeap.h
+        EserciziSlide-Lezione10/PriorityQueue/Min-priority-Queue/minPriorityQueue.h
+        EserciziSlide-Lezione12/Esercizio03/binarySearchTree.h
+        EserciziSlide-Lezione12/Esercizio03/main.cpp
+        EserciziSlide-Lezione12/Esercizio03/node.h
+        EserciziSlide-Lezione12/Esercizio04/abr.h
+        EserciziSlide-Lezione12/Esercizio04/main.cpp
+        EserciziSlide-Lezione12/Esercizio04/node.h
+        Grafi/BFSVisit/grafoOrientato.h
+        Grafi/BFSVisit/main.cpp
+        Grafi/BFSVisit/nodo.h
+        Grafi/BFSVisit/vertice.h
+        Grafi/DFSVisit/grafoOrientato.h
+        Grafi/DFSVisit/main.cpp
+        Grafi/DFSVisit/nodo.h
+        Grafi/DFSVisit/vertice.h
+        Grafi/InsiemiDisgiunti/grafoNonOrientato.h
+        Grafi/InsiemiDisgiunti/main.cpp
+        Grafi/InsiemiDisgiunti/nodo.h
+        Grafi/InsiemiDisgiunti/vertice.h
+        Grafi/OrdinamentoTopologico/grafo.h
+        Grafi/OrdinamentoTopologico/main.cpp
+        Grafi/OrdinamentoTopologico/nodo.h
+        Grafi/OrdinamentoTopologico/vertice.h
+        Introduction-Data-Structures/classInheritance/inheritance.cpp
+        Introduction-Data-Structures/iterator/iteratorTest.cpp
+        Introduction-Data-Structures/linkedList/employee.h
+        Introduction-Data-Structures/linkedList/list.h
+        Introduction-Data-Structures/linkedList/main.cpp
+        Introduction-Data-Structures/linkedList/manager.h
+        Introduction-Data-Structures/linkedList/node.h
+        Introduction-Data-Structures/map/map.cpp
+        Introduction-Data-Structures/operatorOverload/vectorSum.cpp
+        Introduction-Data-Structures/opFile/fileWrite.cpp
+        Introduction-Data-Structures/overLoading/overLoadFunction.cpp
+        Introduction-Data-Structures/polymorphism/classPolymorphism.cpp
+        Introduction-Data-Structures/thread/thread.cpp
+        Introduction-Data-Structures/wordCount/counter.h
+        Introduction-Data-Structures/wordCount/main.cpp
+        Mst/Kruskal/grafoPesato.h
+        Mst/Kruskal/main.cpp
+        Mst/Kruskal/nodo.h
+        Mst/Kruskal/vertice.h
+        PreparazioneEsame/BinarySearchTree/PrimaProva/abr.h
+        PreparazioneEsame/BinarySearchTree/PrimaProva/main.cpp
+        PreparazioneEsame/BinarySearchTree/PrimaProva/nodo.h
+        PreparazioneEsame/BinarySearchTree/SecondaProva/abr2.h
+        PreparazioneEsame/BinarySearchTree/SecondaProva/main2.cpp
+        PreparazioneEsame/BinarySearchTree/SecondaProva/nodo2.h
+        PreparazioneEsame/BinarySearchTree/TerzaProva/abr.h
+        PreparazioneEsame/BinarySearchTree/TerzaProva/main.cpp
+        PreparazioneEsame/BinarySearchTree/TerzaProva/nodo.h
+        PreparazioneEsame/Grafi/bfs/Bfs1/grafo.h
+        PreparazioneEsame/Grafi/bfs/Bfs1/main.cpp
+        PreparazioneEsame/Grafi/bfs/Bfs1/nodo.h
+        PreparazioneEsame/Grafi/bfs/Bfs1/vertice.h
+        PreparazioneEsame/Grafi/bfs/Bfs2/grafo.h
+        PreparazioneEsame/Grafi/bfs/Bfs2/main.cpp
+        PreparazioneEsame/Grafi/bfs/Bfs2/nodo.h
+        PreparazioneEsame/Grafi/bfs/Bfs2/vertice.h
+        PreparazioneEsame/Grafi/bfs/Bfs3/grafo.h
+        PreparazioneEsame/Grafi/bfs/Bfs3/main.cpp
+        PreparazioneEsame/Grafi/bfs/Bfs3/nodo.h
+        PreparazioneEsame/Grafi/bfs/Bfs3/vertice.h
+        PreparazioneEsame/Grafi/bfs/Bfs4/grafo.h
+        PreparazioneEsame/Grafi/bfs/Bfs4/main.cpp
+        PreparazioneEsame/Grafi/bfs/Bfs4/nodo.h
+        PreparazioneEsame/Grafi/bfs/Bfs4/vertice.h
+        PreparazioneEsame/Grafi/bfs/bfs5/grafo.h
+        PreparazioneEsame/Grafi/bfs/bfs5/main.cpp
+        PreparazioneEsame/Grafi/bfs/bfs5/nodo.h
+        PreparazioneEsame/Grafi/bfs/bfs5/vertice.h
+        PreparazioneEsame/Grafi/dfs/dfs1/grafo.h
+        PreparazioneEsame/Grafi/dfs/dfs1/main.cpp
+        PreparazioneEsame/Grafi/dfs/dfs1/nodo.h
+        PreparazioneEsame/Grafi/dfs/dfs1/vertice.h
+        PreparazioneEsame/Grafi/dfs/dfs2/grafo.h
+        PreparazioneEsame/Grafi/dfs/dfs2/main.cpp
+        PreparazioneEsame/Grafi/dfs/dfs2/nodo.h
+        PreparazioneEsame/Grafi/dfs/dfs2/vertice.h
+        PreparazioneEsame/Grafi/dfs/dfs3/grafo.h
+        PreparazioneEsame/Grafi/dfs/dfs3/main.cpp
+        PreparazioneEsame/Grafi/dfs/dfs3/nodo.h
+        PreparazioneEsame/Grafi/dfs/dfs3/vertice.h
+        PreparazioneEsame/Grafi/dfs/dfs4/grafo.h
+        PreparazioneEsame/Grafi/dfs/dfs4/main.cpp
+        PreparazioneEsame/Grafi/dfs/dfs4/nodo.h
+        PreparazioneEsame/Grafi/dfs/dfs4/vertice.h
+        PreparazioneEsame/Grafi/dfs/dfs5/grafo.h
+        PreparazioneEsame/Grafi/dfs/dfs5/main.cpp
+        PreparazioneEsame/Grafi/dfs/dfs5/nodo.h
+        PreparazioneEsame/Grafi/dfs/dfs5/vertice.h
+        PreparazioneEsame/HeapSort/heapSort.h
+        PreparazioneEsame/HeapSort/main.cpp
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/PrimaProva/main.cpp
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/PrimaProva/maxHeap.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/PrimaProva/maxPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuartaProva/main.cpp
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuartaProva/maxHeap.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuartaProva/maxPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/SecondaProva/main2.cpp
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/SecondaProva/maxHeap2.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/SecondaProva/maxPriorityQueue2.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/TerzaProva/main3.cpp
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/TerzaProva/maxHeap3.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/TerzaProva/maxPriorityQueue3.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/PrimaProva/main.cpp
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/PrimaProva/minHeap.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/PrimaProva/minPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/SecondaProva/main2.cpp
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/SecondaProva/minHeap2.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/SecondaProva/minPriorityQueue2.h
+        PriorityQueue/Max-Priority-Queue/main.cpp
+        PriorityQueue/Max-Priority-Queue/maxHeap.h
+        PriorityQueue/Max-Priority-Queue/maxPriorityQueue.h
+        PriorityQueue/Min-priority-Queue/main.cpp
+        PriorityQueue/Min-priority-Queue/minHeap.h
+        PriorityQueue/Min-priority-Queue/minPriorityQueue.h
+        programmazioneDinamica/DistanzaDiEditing/main.cpp
+        programmazioneDinamica/Knapsack/main.cpp
+        programmazioneGreedy/Esercizio01/main.cpp
+        programmazioneGreedy/Esercizio02/main.cpp
+        programmazioneGreedy/Esercizio02/minheap.h
+        programmazioneGreedy/Esercizio02/minPriorityQueue.h
+        python/tictactoe.py
+        VariousExercises/blockChain/block.h
+        VariousExercises/blockChain/list.h
+        VariousExercises/blockChain/main.cpp
+        VariousExercises/blockChain/node.h
+        VariousExercises/blockChain/transaction.h
+        VariousExercises/giocoDel15/checkerSolution.h
+        VariousExercises/giocoDel15/main.cpp
+        VariousExercises/HelloWorld/decisionMaking.cpp
+        VariousExercises/HelloWorld/forLoop.cpp
+        VariousExercises/HelloWorld/helloWorld.cpp
+        VariousExercises/HelloWorld/sizeData.cpp
+        VariousExercises/HelloWorld/whileLoop.cpp
+        VariousExercises/indovinelloAnfore/anfore.h
+        VariousExercises/indovinelloAnfore/contenitore.h
+        VariousExercises/indovinelloAnfore/gioco.cpp
+        VariousExercises/indovinelloAnfore/indovinello.h
+        VariousExercises/rispettaVersi/controllo.h
+        VariousExercises/rispettaVersi/main.cpp
+        LICENSE
+        README.md)

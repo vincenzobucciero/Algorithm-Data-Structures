@@ -1,0 +1,3 @@
+/home/vincenzo/CLionProjects/Algorithm-Data-Structures/cmake-build-debug/CMakeFiles/Algorithm_Data_Structures.dir
+/home/vincenzo/CLionProjects/Algorithm-Data-Structures/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/vincenzo/CLionProjects/Algorithm-Data-Structures/cmake-build-debug/CMakeFiles/rebuild_cache.dir

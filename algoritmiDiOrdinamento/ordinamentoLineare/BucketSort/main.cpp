@@ -14,6 +14,8 @@
  *      Sposta gli elementi dai buckets all’array originale
 */
 
+
+/*
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -21,11 +23,11 @@
 using namespace std;
 
 template <typename T>
-void bucketSort(vector<int> arr) {
+void bucketSort(vector<T> arr) {
     int n = arr.size();
     
     // Creazione di un vettore di secchi (bucket) vuoti
-    vector<T> buckets(n);
+    vector<int> buckets(n);
 
     // Distribuzione degli elementi nei secchi
     for (int i = 0; i < n; i++) {
@@ -66,3 +68,6 @@ int main() {
 
     return 0;
 }
+
+
+ */
