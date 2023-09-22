@@ -316,4 +316,8 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/BinarySearchTree/QuartaProva/main.cpp
         PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/minHeap.h
         PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/minPriorityQueue.h
-        PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/main.cpp)
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/main.cpp
+        PreparazioneEsame/Grafi/bfs/Bfs6/vertice.h
+        PreparazioneEsame/Grafi/bfs/Bfs6/nodo.h
+        PreparazioneEsame/Grafi/bfs/Bfs6/grafo.h
+        PreparazioneEsame/Grafi/bfs/Bfs6/main.cpp)
