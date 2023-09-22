@@ -1260,7 +1260,9 @@
 				184,
 				185,
 				188,
-				191
+				191,
+				196,
+				199
 			]
 		}
 	],
@@ -1395,7 +1397,11 @@
 				186,
 				187,
 				189,
-				190
+				190,
+				194,
+				195,
+				197,
+				198
 			]
 		},
 		{
@@ -1489,7 +1495,9 @@
 				184,
 				185,
 				188,
-				191
+				191,
+				196,
+				199
 			]
 		},
 		{
@@ -2561,6 +2569,38 @@
 			"backtrace" : 1,
 			"path" : "README.md",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PreparazioneEsame/BinarySearchTree/QuartaProva/nodo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PreparazioneEsame/BinarySearchTree/QuartaProva/abr.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PreparazioneEsame/BinarySearchTree/QuartaProva/main.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/minHeap.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/minPriorityQueue.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/main.cpp",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

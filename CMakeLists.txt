@@ -310,4 +310,10 @@ add_executable(Algorithm_Data_Structures
         VariousExercises/rispettaVersi/controllo.h
         VariousExercises/rispettaVersi/main.cpp
         LICENSE
-        README.md)
+        README.md
+        PreparazioneEsame/BinarySearchTree/QuartaProva/nodo.h
+        PreparazioneEsame/BinarySearchTree/QuartaProva/abr.h
+        PreparazioneEsame/BinarySearchTree/QuartaProva/main.cpp
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/minHeap.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/minPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/TerzaProva/main.cpp)
