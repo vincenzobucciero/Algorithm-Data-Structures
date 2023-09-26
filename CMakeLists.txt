@@ -324,4 +324,10 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/Grafi/dfs/dfs6/vertice.h
         PreparazioneEsame/Grafi/dfs/dfs6/nodo.h
         PreparazioneEsame/Grafi/dfs/dfs6/grafo.h
-        PreparazioneEsame/Grafi/dfs/dfs6/main.cpp)
+        PreparazioneEsame/Grafi/dfs/dfs6/main.cpp
+        PreparazioneEsame/BinarySearchTree/QuintaProva/nodo.h
+        PreparazioneEsame/BinarySearchTree/QuintaProva/abr.h
+        PreparazioneEsame/BinarySearchTree/QuintaProva/main.cpp
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/minHeap.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/minPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/main.cpp)
