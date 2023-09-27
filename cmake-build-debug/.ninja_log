@@ -37,3 +37,8 @@
 915	1427	1695369719085535727	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione10/PriorityQueue/Max-Priority-Queue/main.cpp.o	a2be88870824e30c
 1	430	1695369493687473579	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione06/esercizio01/kesimoNumMax.cpp.o	f4d15546a5c8114e
 1	550	1695369718205527570	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione07/MergeSortRecursive/main.cpp.o	496982b2731be8f0
+2	743	1695821003940471558	CMakeFiles/Algorithm_Data_Structures.dir/Introduction-Data-Structures/iterator/iteratorTest.cpp.o	200f8b9425cce91d
+2	831	1695821004028472128	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/DFSVisit/main.cpp.o	701f7cf6ab46f863
+1	857	1695821004056472310	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/InsiemiDisgiunti/main.cpp.o	c0f72196acab3a6d
+1	868	1695821004068472387	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/BFSVisit/main.cpp.o	b86af45c0c1a3b84
+2	872	1695821004072472413	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/OrdinamentoTopologico/main.cpp.o	dca618b9bfc576a9
