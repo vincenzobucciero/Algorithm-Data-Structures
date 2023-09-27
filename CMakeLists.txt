@@ -330,4 +330,5 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/BinarySearchTree/QuintaProva/main.cpp
         PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/minHeap.h
         PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/minPriorityQueue.h
-        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/main.cpp)
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuartaProva/main.cpp
+        PreparazioneEsame/HashTable/main.cpp)
