@@ -24,7 +24,7 @@ private:
     T value;
     Color color;
     Vertice<T>* predecessore;
-    int distanza{};
+    int distanza;
 public:
     Vertice(T value);
     void setValue(T value) {this->value = value;}
