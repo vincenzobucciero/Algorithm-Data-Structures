@@ -9,9 +9,13 @@
 670	1096	1695369718753532649	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione10/Esercizio-02/main.cpp.o	5ea7e18140a2c188
 2	336	1695369325705982962	CMakeFiles/Algorithm_Data_Structures.dir/algoritmiDiOrdinamento/HybridSort/main.cpp.o	f5e2ef1945964f8
 399	987	1695369494243478588	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione06/esercizio03/main.cpp.o	aae43e6df4b03a16
+1	857	1695821004056472310	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/InsiemiDisgiunti/main.cpp.o	c0f72196acab3a6d
+2	872	1695821004072472413	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/OrdinamentoTopologico/main.cpp.o	dca618b9bfc576a9
+2	831	1695821004028472128	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/DFSVisit/main.cpp.o	701f7cf6ab46f863
 584	1117	1695369718773532835	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione10/Esercizio-01/main.cpp.o	df1e37175a8f397c
 2	399	1695369493655473291	CMakeFiles/Algorithm_Data_Structures.dir/BinaryTree/Heap/MinHeap/main.cpp.o	aa0e220c6ed587ff
 277	721	1695369718377529164	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione09/Esercizio-03/main.cpp.o	8c88e055fa1ba4dd
+1	868	1695821004068472387	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/BFSVisit/main.cpp.o	b86af45c0c1a3b84
 436	855	1695369494111477399	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione06/maxSubArray/main.cpp.o	4e3cf5c2032e6d91
 2	443	1695369325809983869	CMakeFiles/Algorithm_Data_Structures.dir/algoritmiDiOrdinamento/InsertionSort/main.cpp.o	ecc3cf38c2c5bf9a
 1047	1489	1695369719145536283	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione12/Esercizio03/main.cpp.o	8b93aeb104352993
@@ -38,7 +42,3 @@
 1	430	1695369493687473579	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione06/esercizio01/kesimoNumMax.cpp.o	f4d15546a5c8114e
 1	550	1695369718205527570	CMakeFiles/Algorithm_Data_Structures.dir/EserciziSlide-Lezione07/MergeSortRecursive/main.cpp.o	496982b2731be8f0
 2	743	1695821003940471558	CMakeFiles/Algorithm_Data_Structures.dir/Introduction-Data-Structures/iterator/iteratorTest.cpp.o	200f8b9425cce91d
-2	831	1695821004028472128	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/DFSVisit/main.cpp.o	701f7cf6ab46f863
-1	857	1695821004056472310	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/InsiemiDisgiunti/main.cpp.o	c0f72196acab3a6d
-1	868	1695821004068472387	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/BFSVisit/main.cpp.o	b86af45c0c1a3b84
-2	872	1695821004072472413	CMakeFiles/Algorithm_Data_Structures.dir/Grafi/OrdinamentoTopologico/main.cpp.o	dca618b9bfc576a9
