@@ -338,4 +338,8 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/Grafi/bfs/Bfs7/vertice.h
         PreparazioneEsame/Grafi/bfs/Bfs7/nodo.h
         PreparazioneEsame/Grafi/bfs/Bfs7/grafo.h
-        PreparazioneEsame/Grafi/bfs/Bfs7/main.cpp)
+        PreparazioneEsame/Grafi/bfs/Bfs7/main.cpp
+        PreparazioneEsame/Grafi/dfs/dfs7/vertice.h
+        PreparazioneEsame/Grafi/dfs/dfs7/nodo.h
+        PreparazioneEsame/Grafi/dfs/dfs7/grafo.h
+        PreparazioneEsame/Grafi/dfs/dfs7/main.cpp)
