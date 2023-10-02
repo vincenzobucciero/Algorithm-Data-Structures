@@ -15,59 +15,61 @@
 */
 
 
-/*
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
 template <typename T>
-void bucketSort(vector<T> arr) {
+void bucketSort(vector<T>& arr) {
     int n = arr.size();
-    
-    // Creazione di un vettore di secchi (bucket) vuoti
-    vector<int> buckets(n);
+    vector<vector<T>> buckets(n);
 
-    // Distribuzione degli elementi nei secchi
-    for (int i = 0; i < n; i++) {
-        int bucketIndex = n * arr.at(i);
-        buckets[bucketIndex].push_back(arr.at(i));
+    for(int i = 0; i < n; i++) {
+        int bucketIndex = n * arr[i];
+        buckets[bucketIndex].push_back(arr[i]);
     }
 
-    // Ordinamento dei secchi e concatenazione degli elementi ordinati
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         sort(buckets[i].begin(), buckets[i].end());
     }
 
     int index = 0;
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         for(int j = 0; j < buckets[i].size(); j++) {
             arr[index++] = buckets[i][j];
         }
-        
     }
 }
 
 int main() {
-    vector<int> arr = {42, 32, 33, 52, 37, 47, 51};
+    vector<int> arr;
 
-    cout << "Original array: ";
-    for (int num : arr) {
-        cout << num << " ";
+    ifstream input;
+    string myFileInput = "fileInput.txt";
+    input.open(myFileInput);
+
+    int num;
+    while(input >> num) {
+        arr.push_back(num);
     }
-    cout << endl;
 
-    bucketSort(&arr); // Imposta il numero di secchi (buckets)
+    input.close();
 
-    cout << "Sorted array: ";
-    for (int num : arr) {
-        cout << num << " ";
+    cout << "Array non ordinato:" << endl;
+    for(auto i : arr) {
+        cout << i << "  ";
     }
-    cout << endl;
+
+    bucketSort(arr);
+
+    cout << "Array ordinato con bucketSort:" << endl;
+    for(auto i : arr) {
+        cout << i << "  ";
+    }
 
     return 0;
 }
-
-
- */
