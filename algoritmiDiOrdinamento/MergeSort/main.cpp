@@ -17,7 +17,7 @@
 */
 
 #include <iostream>
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 
@@ -34,7 +34,7 @@ typedef int Item;
  * to find the next minimum in the input files in constant time.
 */
 
-void mergeTwoWay(int c[], int a[], int n, int b[], int m) {
+void mergeTwoWay(int c[], const int a[], int n, const int b[], int m) {
     for(int i = 0, j = 0, k = 0; k < n+m; k++) {
         if(i == n) {
             c[k] = b[j++];
@@ -177,7 +177,7 @@ int main() {
     cin >> n;
 
     int *a = new Item[n];
-    srand(time(NULL));
+    srand(time(nullptr));
     for(int i = 0; i < n; i++) {
         a[i] = rand()%10;
     }
