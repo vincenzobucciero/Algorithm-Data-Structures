@@ -342,4 +342,5 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/Grafi/dfs/dfs7/vertice.h
         PreparazioneEsame/Grafi/dfs/dfs7/nodo.h
         PreparazioneEsame/Grafi/dfs/dfs7/grafo.h
-        PreparazioneEsame/Grafi/dfs/dfs7/main.cpp)
+        PreparazioneEsame/Grafi/dfs/dfs7/main.cpp
+        PreparazioneEsame/HashTable/Hash1/main.cpp)
