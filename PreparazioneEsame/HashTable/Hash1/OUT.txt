@@ -1,0 +1,20 @@
+Carattere: 
+ Occorrenza: 16
+Carattere: a Occorrenza: 17
+Carattere: b Occorrenza: 1
+Carattere: c Occorrenza: 4
+Carattere: d Occorrenza: 1
+Carattere: e Occorrenza: 10
+Carattere: g Occorrenza: 3
+Carattere: h Occorrenza: 2
+Carattere: i Occorrenza: 11
+Carattere: l Occorrenza: 8
+Carattere: m Occorrenza: 5
+Carattere: n Occorrenza: 9
+Carattere: o Occorrenza: 13
+Carattere: r Occorrenza: 8
+Carattere: s Occorrenza: 6
+Carattere: t Occorrenza: 4
+Carattere: v Occorrenza: 2
+Carattere: y Occorrenza: 2
+Carattere: z Occorrenza: 3
