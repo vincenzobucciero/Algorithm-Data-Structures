@@ -24,36 +24,49 @@
  * Infine si visita l'array C in ordine e si scrivono su A, C[i] copie del valore i + min(A)
 */
 
-
-#include "countingSort.h"
 #include <iostream>
-#include <vector>
-
-using namespace std;
+#include <fstream>
+#include "countingSort.h"
 
 int main() {
-    int numvar = 8;
-    vector<int> vec = {100,20,40,20,12,120,220,10};
+    std::ifstream inputFile("fileInput.txt");  // Apri il file di input
+    if (!inputFile.is_open()) {
+        std::cerr << "Impossibile aprire il file di input." << std::endl;
+        return 1;
+    }
 
-    cout << "Vettore disordinato " << endl;
-    for (auto i:vec)
-        cout << i << " ";
-    cout << endl;
-    //CountingSort::countingSort(&vec, numvar);
+    std::vector<int> arr;  // Crea un vettore per memorizzare i numeri dal file
 
-    CountingSort::countingSortCormen(&vec, numvar);
+    int num;
+    while (inputFile >> num) {
+        arr.push_back(num);  // Leggi i numeri dal file e inseriscili nel vettore
+    }
 
-    /*
-    cout << "Vettore ordinato con CountingSort " << endl;
-    for (auto i:vec)
-        cout << i << " ";
-    cout << endl;
-    */
+    inputFile.close();  // Chiudi il file di input
 
-    cout << "Vettore ordinato con CountingSort (versione Cormen) " << endl;
-    for (auto i:vec)
-        cout << i << " ";
-    cout << endl;
+    std::cout << "Array non ordinato: ";
+    for (int num : arr) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    // Usa countingSort
+    std::vector<int> arr1 = arr;  // Copia l'array per conservare l'originale
+    CountingSort::countingSort(&arr1);
+    std::cout << "Array ordinato usando countingSort: ";
+    for (int num : arr1) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    // Usa countingSortCormen
+    std::vector<int> arr2 = arr;  // Copia l'array per conservare l'originale
+    CountingSort::countingSortCormen(&arr2);
+    std::cout << "Array ordinato usando countingSortCormen: ";
+    for (int num : arr2) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }

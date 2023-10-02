@@ -34,15 +34,15 @@ using namespace std;
 
 class CountingSort {
     public:
-        static void countingSort(vector<int>* arr, int n);  //static cosi non bisogna creare un oggetto countingsort
-        static void countingSortCormen(vector<int>* arr, int n);
+        static void countingSort(vector<int>* arr);  //static cosi non bisogna creare un oggetto countingsort
+        static void countingSortCormen(vector<int>* arr);
 };
 
-void CountingSort::countingSort(vector<int>* arr, int n) {
+void CountingSort::countingSort(vector<int>* arr) {
     int min = arr->at(0);   //definisco minimo
     int max = arr->at(0);   //definisco massimo
 
-    for(int i = 1; i < n; i++) {
+    for(int i = 1; i < arr->size(); i++) {
         if(arr->at(i) > max) {
             max = arr->at(i);
         } else if (arr->at(i) < min) {
@@ -56,8 +56,8 @@ void CountingSort::countingSort(vector<int>* arr, int n) {
         arrC[i] = 0;
     }
 
-    for(int i = 0; i < n; i++) {
-        arrC[arr->at(i) - min + 1] = arrC[arr->at(i) - min + 1] + 1;    //arrC[arr->at(i) - min + 1]++
+    for(int i : *arr) {
+        arrC[i - min] = arrC[i - min] + 1;
     }
 
     int k = 0;
@@ -73,11 +73,11 @@ void CountingSort::countingSort(vector<int>* arr, int n) {
     delete [] arrC;
 }
 
-void CountingSort::countingSortCormen(vector<int>* arr, int n) {
+void CountingSort::countingSortCormen(vector<int>* arr) {
     int min = arr->at(0);   //definisco minimo
     int max = arr->at(0);   //definisco massimo
 
-    for(int i = 1; i < n; i++) {
+    for(int i = 1; i < arr->size(); i++) {
         if(arr->at(i) > max) {
             max = arr->at(i);
         } else if (arr->at(i) < min) {
@@ -91,22 +91,22 @@ void CountingSort::countingSortCormen(vector<int>* arr, int n) {
         arrC[i] = 0;
     }
 
-    for(int i = 0; i < n; i++) {
-        arrC[arr->at(i) - min]++;
+    for(int i : *arr) {
+        arrC[i - min]++;
     }    
 
     for (int i = 1; i < max-min+1; i++) {
         arrC[i] += arrC[i-1];
     }
 
-    int *arrB = new int[n];
+    int *arrB = new int[arr->size()];
 
-    for (int i = n-1; i >= 0; i--){
+    for (int i = arr->size()-1; i >= 0; i--){
         arrB[arrC[arr->at(i) - min] - 1] = arr->at(i);
         arrC[arr->at(i) - min]--;
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < arr->size(); i++)
         arr->at(i) = arrB[i];
 }
 
