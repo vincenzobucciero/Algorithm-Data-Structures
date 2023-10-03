@@ -346,4 +346,7 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/HashTable/Hash1/main.cpp
         PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/maxHeap.h
         PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/maxPriorityQueue.h
-        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/main.cpp)
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/main.cpp
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuintaProva/minHeap.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuintaProva/minPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MinPriorityQueue/QuintaProva/main.cpp)
