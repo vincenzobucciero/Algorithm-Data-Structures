@@ -343,4 +343,7 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/Grafi/dfs/dfs7/nodo.h
         PreparazioneEsame/Grafi/dfs/dfs7/grafo.h
         PreparazioneEsame/Grafi/dfs/dfs7/main.cpp
-        PreparazioneEsame/HashTable/Hash1/main.cpp)
+        PreparazioneEsame/HashTable/Hash1/main.cpp
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/maxHeap.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/maxPriorityQueue.h
+        PreparazioneEsame/PriorityQueue/MaxPriorityQueue/QuintaProva/main.cpp)
