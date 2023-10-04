@@ -21,8 +21,7 @@ class Vertice {
         int tempoInizioVisita;
         int tempoFineVisita;
     public:
-        Vertice(T value); //TODO: implement
-
+        Vertice(T value);
         void setValue(T value) {this->value = value;}
         void setColor(Color color) {this->color = color;}
         void setPredecessore(Vertice<T>* predecessore) {this->predecessore = predecessore;}
