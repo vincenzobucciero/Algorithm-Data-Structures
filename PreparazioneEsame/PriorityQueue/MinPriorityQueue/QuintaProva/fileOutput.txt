@@ -1,0 +1,64 @@
+
+Print MIN HEAP TREE:
+1  10  2  54  14  5  78  76  
+Print MIN HEAP ASCII TREE:
+
+                    78
+
+          2
+
+                    5
+
+1
+
+                    14
+
+          10
+
+                    54
+
+                              76
+
+MINIMUM -> [ 1 ]
+
+..DECREASE-KEY OF ELEMENT AT INDEX 3 TO NEW KEY OF 12 [ 54 -> 12 ]
+
+Print MIN HEAP TREE:
+1  10  2  12  14  5  78  76  
+Print MIN HEAP ASCII TREE:
+
+                    78
+
+          2
+
+                    5
+
+1
+
+                    14
+
+          10
+
+                    12
+
+                              76
+
+EXTRACT-MIN -> [ 1 ]
+
+Print MIN HEAP TREE:
+2  10  5  12  14  76  78  
+Print MIN HEAP ASCII TREE:
+
+                    78
+
+          5
+
+                    76
+
+2
+
+                    14
+
+          10
+
+                    12
