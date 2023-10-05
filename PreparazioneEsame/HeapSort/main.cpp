@@ -33,7 +33,7 @@ int main() {
     HeapSort<int> tree = HeapSort<int>(vec);
     tree.heapSortMethod();
     tree.printTree();
-    tree.printAsciiTree();
+    //tree.printAsciiTree();
 
     myFile.close();
 
