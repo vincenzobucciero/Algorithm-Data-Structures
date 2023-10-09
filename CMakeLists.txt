@@ -354,4 +354,6 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/BinarySearchTree/SettimaProva/abr.h
         PreparazioneEsame/BinarySearchTree/SettimaProva/main.cpp
         PreparazioneEsame/HeapSort/HeapSort1/heap.h
-        PreparazioneEsame/HeapSort/HeapSort1/main.cpp)
+        PreparazioneEsame/HeapSort/HeapSort1/main.cpp
+        PreparazioneEsame/Ordinamento/MergeSort/mergeSort.h
+        PreparazioneEsame/Ordinamento/MergeSort/main.cpp)
