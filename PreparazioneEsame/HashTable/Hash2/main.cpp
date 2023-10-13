@@ -49,11 +49,11 @@ public:
         }
     }
 
-    int searchCharacter(char keyToFind) {
+    int searchCharacter(char keyToFind) {  
         int index = hash(keyToFind);
         for(const auto& element : table[index]) {
-            if(element.key == keyToFind)
-                return element.value;
+            if(element.key == keyToFind)  
+                return element.value;  
         }
     }
 
