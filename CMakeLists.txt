@@ -356,4 +356,6 @@ add_executable(Algorithm_Data_Structures
         PreparazioneEsame/HeapSort/HeapSort1/heap.h
         PreparazioneEsame/HeapSort/HeapSort1/main.cpp
         PreparazioneEsame/Ordinamento/MergeSort/mergeSort.h
-        PreparazioneEsame/Ordinamento/MergeSort/main.cpp)
+        PreparazioneEsame/Ordinamento/MergeSort/main.cpp
+        PreparazioneEsame/Ordinamento/QuickSort/quickSort.h
+        PreparazioneEsame/Ordinamento/QuickSort/main.cpp)
